@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Upendra Pinnelli</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    .contact-header {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #21d4fd;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      text-shadow: 0 2px 8px rgba(33,212,253,0.18);
+    }
+    .contact-intro {
+      text-align: center;
+      margin: 1.2rem auto 2.2rem auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #444;
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      font-weight: 300;
+    }
+    .contact-card {
+      max-width: 420px;
+      margin: 2.5rem auto 2rem auto;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      padding: 2.2rem 2rem 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeInUp 1s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    .contact-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      border-radius: 1.1rem;
+      border: none;
+      background: #e0e7ff;
+      font-size: 1.05rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.08);
+      transition: box-shadow 0.2s;
+      outline: none;
+      resize: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      box-shadow: 0 0 0 2px #21d4fd44;
+    }
+    .contact-form button {
+      background: linear-gradient(90deg, #21d4fd 0%, #b721ff 100%);
+      color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 1.2rem;
+      padding: 0.9rem 0;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .contact-form button:hover, .contact-form button:focus {
+      background: linear-gradient(90deg, #b721ff 0%, #21d4fd 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    .contact-social {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 0.7rem;
+    }
+    .contact-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .contact-social a:hover {
+      background: linear-gradient(135deg, #b721ff 0%, #21d4fd 100%);
+      color: #fff;
+      transform: scale(1.12) rotate(-4deg);
+    }
+    .contact-success {
+      color: #21d4fd;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      display: none;
+    }
+    @media (max-width: 700px) {
+      .contact-header { font-size: 1.3rem; }
+      .contact-card { padding: 1.2rem 0.7rem; }
+    }
+    body.dark-mode .contact-card {
+      background: #232a36;
+      color: #e0e7ff;
+    }
+    body.dark-mode .contact-intro {
+      color: #fff;
+    }
+    body.dark-mode .contact-form input, body.dark-mode .contact-form textarea {
+      background: #181c24;
+      color: #e0e7ff;
+    }
+    body.dark-mode .contact-form button {
+      background: linear-gradient(90deg, #fff 0%, #21d4fd 100%);
+      color: #232a36;
+    }
+    body.dark-mode .contact-form button:hover, body.dark-mode .contact-form button:focus {
+      background: linear-gradient(90deg, #21d4fd 0%, #fff 100%);
+      color: #181c24;
+    }
+    body.dark-mode .contact-social a {
+      background: linear-gradient(135deg, #232a36 0%, #21d4fd 100%);
+      color: #fff;
+    }
+    body.dark-mode .contact-social a:hover {
+      background: linear-gradient(135deg, #21d4fd 0%, #232a36 100%);
+      color: #fff;
+    }
+    .back-arrow-btn {
+      position: fixed;
+      top: 5.5rem;
+      left: 2.2rem;
+      background: #21d4fd;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      cursor: pointer;
+      z-index: 2000;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .back-arrow-btn:hover, .back-arrow-btn:focus {
+      background: #b721ff;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    .back-arrow-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: #fff;
+      transition: stroke 0.2s;
+    }
+    .back-arrow-btn:hover svg, .back-arrow-btn:focus svg {
+      stroke: #fff;
+    }
+    body.dark-mode .back-arrow-btn {
+      background: #fff;
+    }
+    body.dark-mode .back-arrow-btn svg {
+      stroke: #222;
+    }
+    @media (max-width: 700px) {
+      .back-arrow-btn {
+        top: 4.2rem;
+        left: 1rem;
+        width: 34px;
+        height: 34px;
+      }
+      .back-arrow-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="site-logo">ardnepu</a>
+  <button class="back-arrow-btn" aria-label="Go back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+  <div class="theme-toggle">
+    <input type="checkbox" id="toggle-darkmode" aria-label="Toggle dark mode" />
+    <label for="toggle-darkmode" class="toggle-label">
+      <span class="toggle-sun">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </span>
+      <span class="toggle-moon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </label>
+  </div>
+  <h1 class="contact-header">Contact</h1>
+  <div class="contact-intro">
+    I'd love to hear from you! Whether you have a project in mind, want to collaborate, or just want to say hello, feel free to reach out using the form below or connect with me on social media.
+  </div>
+  <div class="contact-card">
+    <form class="contact-form" autocomplete="off" onsubmit="event.preventDefault();document.getElementById('contact-success').style.display='block';this.reset();">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="contact-success" id="contact-success">Thank you! Your message has been sent. 🚀</div>
+    <div class="contact-social">
+      <a href="mailto:upendra@email.com" title="Email" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="https://wa.me/1234567890" title="WhatsApp" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.05 3.05A10 10 0 0 0 3 20.29l-1 3 3-1A10 10 0 1 0 21.05 3.05Zm-2.82 13.13c-.39.39-1.13.76-1.62.85-.43.08-.98.15-2.83-.6-2.39-.94-3.93-3.36-4.05-3.52-.12-.16-.97-1.29-.97-2.47 0-1.18.62-1.76.84-1.99.22-.23.48-.29.64-.29.16 0 .32.01.46.01.15 0 .35-.06.55.42.21.5.71 1.73.77 1.85.06.12.1.26.02.42-.08.16-.12.26-.23.4-.11.14-.23.31-.33.42-.11.12-.22.25-.1.48.12.23.53.87 1.13 1.41.78.7 1.44.92 1.67 1.02.23.1.36.08.49-.05.13-.13.56-.65.71-.87.15-.22.3-.18.5-.11.2.07 1.28.6 1.5.71.22.11.36.17.41.27.05.1.05.57-.34.96Z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/upendrapinnelli" title="LinkedIn" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/></svg>
+      </a>
+      <a href="https://www.instagram.com/ardnepu" title="Instagram" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+      </a>
+      <a href="https://twitter.com/ardnepu" title="Twitter" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.09 9.09 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2.02-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.4 4.07 3.7 1.64.95c-.38.65-.6 1.4-.6 2.2 0 1.52.77 2.86 1.95 3.65A4.48 4.48 0 0 1 .96 6v.06c0 2.13 1.52 3.91 3.54 4.31-.37.1-.76.16-1.16.16-.28 0-.55-.03-.81-.08.55 1.72 2.16 2.97 4.07 3A9.05 9.05 0 0 1 0 19.54a12.8 12.8 0 0 0 6.92 2.03c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.22 9.22 0 0 0 23 3z"/></svg>
+      </a>
+      <a href="https://www.imdb.com/name/nm7526104/" title="IMDB" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="#222"/>
+          <text x="7" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="bold" fill="#222">IMDB</text>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 

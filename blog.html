@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Upendra Pinnelli</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    .blog-header {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #21d4fd;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+    }
+    .blog-intro {
+      text-align: center;
+      margin: 1.2rem auto 2.2rem auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #444;
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      font-weight: 300;
+    }
+    .blog-list {
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.2rem;
+    }
+    .blog-post {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      padding: 1.5rem 2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      transition: box-shadow 0.2s;
+    }
+    .blog-post:hover {
+      box-shadow: 0 4px 24px rgba(33,212,253,0.18);
+    }
+    .blog-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #21d4fd;
+      margin-bottom: 0.3rem;
+    }
+    .blog-date {
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .blog-media {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .blog-media img, .blog-media video, .blog-media iframe {
+      max-width: 100%;
+      border-radius: 0.7rem;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+    }
+    .blog-content {
+      font-size: 1.08rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .back-arrow-btn {
+      position: fixed;
+      top: 5.5rem;
+      left: 2.2rem;
+      background: #21d4fd;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      cursor: pointer;
+      z-index: 2000;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .back-arrow-btn:hover, .back-arrow-btn:focus {
+      background: #b721ff;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    .back-arrow-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: #fff;
+      transition: stroke 0.2s;
+    }
+    .back-arrow-btn:hover svg, .back-arrow-btn:focus svg {
+      stroke: #fff;
+    }
+    body.dark-mode .back-arrow-btn {
+      background: #fff;
+    }
+    body.dark-mode .back-arrow-btn svg {
+      stroke: #222;
+    }
+    @media (max-width: 700px) {
+      .back-arrow-btn {
+        top: 4.2rem;
+        left: 1rem;
+        width: 34px;
+        height: 34px;
+      }
+      .back-arrow-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    @media (max-width: 700px) {
+      .blog-header { font-size: 1.3rem; }
+      .blog-list {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
+      }
+      .blog-post { padding: 1rem 0.7rem; }
+    }
+    body.dark-mode .blog-post {
+      background: #232a36;
+      color: #e0e7ff;
+    }
+    body.dark-mode .blog-title {
+      color: #21d4fd;
+    }
+    body.dark-mode .blog-content {
+      color: #e0e7ff;
+    }
+    body.dark-mode .blog-intro {
+      color: #fff;
+    }
+    /* Blog Media Modal Styles */
+    #blog-media-modal.astro-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    #blog-media-modal .astro-modal-content {
+      background: #fff;
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      max-width: 700px;
+      width: 95vw;
+      box-shadow: 0 8px 32px rgba(33,212,253,0.18);
+      text-align: center;
+      position: relative;
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    #blog-modal-full-content {
+      width: 100%;
+      max-height: 70vh;
+      overflow-y: auto;
+      text-align: left;
+    }
+    #blog-media-modal .astro-modal-close {
+      position: absolute;
+      top: -0.6rem;
+      right: 1.1rem;
+      font-size: 2.2rem;
+      color: #21d4fd;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 2;
+    }
+    #blog-modal-media-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #blog-modal-media-container img, #blog-modal-media-container iframe {
+      max-width: 90vw;
+      max-height: 70vh;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      background: #000;
+    }
+    @media (max-width: 700px) {
+      #blog-media-modal .astro-modal-content {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+        max-height: 98vh;
+      }
+      #blog-modal-full-content {
+        max-height: 60vh;
+      }
+      #blog-modal-media-container img, #blog-modal-media-container iframe {
+        max-width: 98vw;
+        max-height: 40vh;
+      }
+    }
+    body.dark-mode #blog-media-modal .astro-modal-content {
+      background: #181c24;
+      color: #fff;
+    }
+    .blog-read-btn {
+      display: block;
+      width: 100%;
+      margin: 1.2rem 0 0.2rem 0;
+      padding: 0.7rem 0;
+      background: linear-gradient(90deg, #21d4fd 0%, #b721ff 100%);
+      color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .blog-read-btn:hover, .blog-read-btn:focus {
+      background: linear-gradient(90deg, #b721ff 0%, #21d4fd 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    body.dark-mode .blog-read-btn {
+      background: linear-gradient(90deg, #fff 0%, #21d4fd 100%);
+      color: #232a36;
+    }
+    body.dark-mode .blog-read-btn:hover, body.dark-mode .blog-read-btn:focus {
+      background: linear-gradient(90deg, #21d4fd 0%, #fff 100%);
+      color: #181c24;
+    }
+    #blog-modal-full-content::-webkit-scrollbar, #blog-media-modal .astro-modal-content::-webkit-scrollbar {
+      width: 7px;
+      background: transparent;
+    }
+    #blog-modal-full-content::-webkit-scrollbar-thumb, #blog-media-modal .astro-modal-content::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      border-radius: 6px;
+      min-height: 40px;
+    }
+    #blog-modal-full-content::-webkit-scrollbar-thumb:hover, #blog-media-modal .astro-modal-content::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #b721ff 0%, #21d4fd 100%);
+    }
+    #blog-modal-full-content {
+      scrollbar-width: thin;
+      scrollbar-color: #21d4fd #e0e7ff;
+    }
+    body.dark-mode #blog-modal-full-content {
+      scrollbar-color: #21d4fd #232a36;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="site-logo">ardnepu</a>
+  <button class="back-arrow-btn" aria-label="Go back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+  <div class="theme-toggle">
+    <input type="checkbox" id="toggle-darkmode" aria-label="Toggle dark mode" />
+    <label for="toggle-darkmode" class="toggle-label">
+      <span class="toggle-sun">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </span>
+      <span class="toggle-moon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </label>
+  </div>
+  <h1 class="blog-header">Blog</h1>
+  <div class="blog-intro">
+    Updates, thoughts, and moments...
+  </div>
+  <div class="blog-list">
+    <!-- Blog Post 1: Images and Videos -->
+    <div class="blog-post" data-post="1">
+      <div class="blog-title">Chasing the Milky Way: My First Astrophotography Adventure</div>
+      <div class="blog-date">April 10, 2024</div>
+      <div class="blog-media">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Milky Way over mountains">
+      </div>
+      <button class="blog-read-btn">Read</button>
+      <div class="blog-full-content" style="display:none;">
+        <div class="blog-media">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Milky Way over mountains">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Starry night sky">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/6lt2JfJdGSY" title="Astro Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/7Z6zqV1cGgA" title="Astro Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="blog-content">
+          I spent a night under the stars, learning the basics of astrophotography. The thrill of capturing the Milky Way for the first time is something I’ll never forget. Here are some tips for beginners and a look at my favorite shot from the trip.
+        </div>
+      </div>
+    </div>
+    <!-- Blog Post 2: Images and Videos -->
+    <div class="blog-post" data-post="2">
+      <div class="blog-title">Behind the Scenes: Wildlife Photography in Action</div>
+      <div class="blog-date">March 28, 2024</div>
+      <div class="blog-media">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Wildlife closeup">
+      </div>
+      <button class="blog-read-btn">Read</button>
+      <div class="blog-full-content" style="display:none;">
+        <div class="blog-media">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Wildlife closeup">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Animal in forest">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/1La4QzGeaaQ" title="Wildlife Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/Bey4XXJAqS8" title="Wildlife Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="blog-content">
+          Go behind the scenes with me as I track and photograph wildlife in their natural habitat. These images and videos capture the patience, excitement, and unpredictability of wildlife photography.
+        </div>
+      </div>
+    </div>
+    <!-- Blog Post 3: Images and Videos -->
+    <div class="blog-post" data-post="3">
+      <div class="blog-title">Designing a Minimalist Logo: Step by Step</div>
+      <div class="blog-date">March 15, 2024</div>
+      <div class="blog-media">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Logo sketch">
+      </div>
+      <button class="blog-read-btn">Read</button>
+      <div class="blog-full-content" style="display:none;">
+        <div class="blog-media">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Logo sketch">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80" alt="Design workspace">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/3t6bLugtJkQ" title="Logo Design Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/8Qn_spdM5Zg" title="Logo Design Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="blog-content">
+          In this post, I walk through my process for designing a clean, minimalist logo. From brainstorming to final vector art, see how a simple idea becomes a finished design, with supporting images and video walkthroughs.
+        </div>
+      </div>
+    </div>
+    <!-- Blog Post 4: Images and Videos -->
+    <div class="blog-post" data-post="4">
+      <div class="blog-title">Street Photography: Capturing Candid Moments</div>
+      <div class="blog-date">February 27, 2024</div>
+      <div class="blog-media">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Street scene">
+      </div>
+      <button class="blog-read-btn">Read</button>
+      <div class="blog-full-content" style="display:none;">
+        <div class="blog-media">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Street scene">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Candid moment">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/7Z6zqV1cGgA" title="Street Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/6lt2JfJdGSY" title="Street Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="blog-content">
+          Street photography is all about timing and observation. Here’s a mix of images and videos with tips on how to blend in, spot interesting scenes, and capture authentic moments on the go.
+        </div>
+      </div>
+    </div>
+    <!-- Blog Post 5: Images and Videos -->
+    <div class="blog-post" data-post="5">
+      <div class="blog-title">Creative Editing: Transforming a Simple Photo</div>
+      <div class="blog-date">February 10, 2024</div>
+      <div class="blog-media">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Photo before editing">
+      </div>
+      <button class="blog-read-btn">Read</button>
+      <div class="blog-full-content" style="display:none;">
+        <div class="blog-media">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Photo before editing">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Photo after editing">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/1La4QzGeaaQ" title="Editing Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/Bey4XXJAqS8" title="Editing Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="blog-content">
+          Sometimes, a little editing can turn an ordinary photo into something extraordinary. I share my favorite before-and-after edits and the tools I use to achieve these effects, with supporting images and video tutorials.
+        </div>
+      </div>
+    </div>
+    <!-- Future blog posts section -->
+    <div class="blog-post" style="opacity:0.7; text-align:center;">
+      <div class="blog-title">More posts coming soon...</div>
+      <div class="blog-content">Stay tuned for new stories, tutorials, and creative inspiration!</div>
+    </div>
+  </div>
+  <!-- Blog Media Modal -->
+  <div id="blog-media-modal" class="astro-modal" style="display:none;z-index:99999;">
+    <div class="astro-modal-content" style="max-width:700px;width:95vw;position:relative;">
+      <span class="astro-modal-close" id="blog-modal-close">&times;</span>
+      <div id="blog-modal-full-content" style="width:100%;"></div>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="https://instagram.com/ardnepu" class="footer-icon instagram-icon" target="_blank" rel="noopener" title="Instagram">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com/ardnepu" class="footer-icon facebook-icon" target="_blank" rel="noopener" title="Facebook">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 8h-2a2 2 0 0 0-2 2v2h4"/><line x1="12" y1="16" x2="12" y2="12"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ardnepu" class="footer-icon linkedin-icon" target="_blank" rel="noopener" title="LinkedIn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/></svg>
+        </a>
+        <a href="mailto:upendra@ardnepu.com" class="footer-icon mail-icon" target="_blank" rel="noopener" title="Email">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="https://x.com/itsardnepu" class="footer-icon x-icon" target="_blank" rel="noopener" title="X (Twitter)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-.77.35-1.6.59-2.47.7a4.15 4.15 0 0 0 1.82-2.3 8.27 8.27 0 0 1-2.62 1 4.13 4.13 0 0 0-7.04 3.76A11.7 11.7 0 0 1 3.1 3.1a4.13 4.13 0 0 0 1.28 5.5c-.7-.02-1.36-.22-1.94-.54v.05a4.13 4.13 0 0 0 3.32 4.05c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.13 4.13 0 0 0 3.85 2.86A8.3 8.3 0 0 1 2 19.54a11.72 11.72 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22 4.01z"/></svg>
+        </a>
+        <a href="https://wa.me/9966999355" class="footer-icon whatsapp-icon" target="_blank" rel="noopener" title="WhatsApp">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 0-16.32 6.36L3 21l2.64-.68A9 9 0 0 0 21 12Z"/><path d="M16.5 15a4 4 0 0 1-7-2.5V12a4 4 0 0 1 4-4h.5"/></svg>
+        </a>
+        <a href="https://www.imdb.com/name/nm7526104/" class="footer-icon imdb-icon" target="_blank" rel="noopener" title="IMDB">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="#222"/>
+            <text x="7" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="bold" fill="#222">IMDB</text>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html> 

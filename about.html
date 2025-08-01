@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Upendra Pinnelli</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      --accent: #21d4fd;
+    }
+    .about-header {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #21d4fd;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      text-shadow: 0 2px 8px rgba(33,212,253,0.18);
+    }
+    .about-intro {
+      text-align: center;
+      margin: 1.2rem auto 2.2rem auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #444;
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      font-weight: 300;
+    }
+    .about-section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      padding: 2rem 2.5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    .about-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+    .about-timeline {
+      margin: 2.5rem 0 1.5rem 0;
+      position: relative;
+      padding-left: 2.5rem;
+      border-left: 3px solid #21d4fd44;
+    }
+    .about-timeline-event {
+      margin-bottom: 2.2rem;
+      position: relative;
+    }
+    .about-timeline-event:before {
+      content: '';
+      position: absolute;
+      left: -1.3rem;
+      top: 0.2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+    }
+    .about-timeline-title {
+      font-weight: 700;
+      color: #21d4fd;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    .about-timeline-desc {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .about-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0 1.5rem 0;
+    }
+    .about-fact {
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      color: #fff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      min-width: 180px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .about-fact:hover {
+      transform: scale(1.06) rotate(-2deg);
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    .about-map {
+      width: 100%;
+      height: 320px;
+      border-radius: 1.2rem;
+      margin: 2rem 0 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      overflow: hidden;
+      border: none;
+      display: block;
+    }
+    .about-skills {
+      margin: 2.5rem 0 1.5rem 0;
+      text-align: center;
+    }
+    .about-skill-bar {
+      background: #e0e7ff;
+      border-radius: 1.2rem;
+      margin: 0.7rem auto;
+      width: 80%;
+      height: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+    }
+    .about-skill-fill {
+      height: 100%;
+      border-radius: 1.2rem 0 0 1.2rem;
+      background: linear-gradient(90deg, #21d4fd 0%, #b721ff 100%);
+      width: 0;
+      transition: width 1.2s cubic-bezier(.4,2,.6,1);
+    }
+    .about-skill-label {
+      position: absolute;
+      left: 1rem;
+      top: 0.2rem;
+      color: #232a36;
+      font-weight: 700;
+      font-size: 1rem;
+      z-index: 2;
+    }
+    .about-skill-value {
+      position: absolute;
+      right: 1rem;
+      top: 0.2rem;
+      color: #232a36;
+      font-weight: 700;
+      font-size: 1rem;
+      z-index: 2;
+    }
+    @keyframes breathe {
+      0% { filter: brightness(1) scaleY(1); box-shadow: 0 2px 8px rgba(33,212,253,0.10); }
+      40% { filter: brightness(1.35) scaleY(1.22); box-shadow: 0 8px 24px 0 rgba(33,212,253,0.25); }
+      100% { filter: brightness(1) scaleY(1); box-shadow: 0 2px 8px rgba(33,212,253,0.10); }
+    }
+    @media (max-width: 700px) {
+      .about-header { font-size: 1.3rem; }
+      .about-section { padding: 1.2rem 0.7rem; }
+      .about-skill-bar { width: 98%; }
+    }
+    body.dark-mode .about-section {
+      background: #232a36;
+      color: #e0e7ff;
+    }
+    body.dark-mode .about-timeline-title {
+      color: #21d4fd;
+    }
+    body.dark-mode .about-fact {
+      background: linear-gradient(135deg, #232a36 0%, #21d4fd 100%);
+      color: #fff;
+    }
+    body.dark-mode .about-skill-bar {
+      background: #181c24;
+    }
+    body.dark-mode .about-skill-label, body.dark-mode .about-skill-value {
+      color: #e0e7ff;
+    }
+    body.dark-mode .about-intro {
+      color: #fff;
+    }
+    body.dark-mode .about-timeline-desc {
+      color: #e0e7ff;
+    }
+    .about-loading-fill.breathe {
+      animation: breathe 1.6s infinite cubic-bezier(.4,2,.6,1);
+      will-change: filter, box-shadow, transform;
+      transition: none !important;
+    }
+    .about-loading-fill {
+      border: 1.5px solid #21d4fd;
+      transition: width 1.2s cubic-bezier(.4,2,.6,1);
+    }
+    .about-loading-pixel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .about-loading-label-pixel {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.1rem;
+      color: #21d4fd;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 2px 8px rgba(33,212,253,0.10);
+    }
+    .about-loading-bar-pixel {
+      display: flex;
+      align-items: center;
+      border: 3px solid #21d4fd;
+      border-radius: 0.3rem;
+      background: #fff;
+      padding: 0.3rem 0.2rem;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      width: 340px;
+      max-width: 95vw;
+      height: 2.1rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+    .about-loading-block {
+      width: 16px;
+      height: 1.5rem;
+      margin: 0 2px;
+      background: #e0e7ff;
+      border-radius: 0.1rem;
+      box-shadow: 0 1px 2px rgba(33,212,253,0.08);
+      transition: background 0.2s;
+      opacity: 0.7;
+    }
+    .about-loading-block.filled {
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      opacity: 1;
+      animation: pixelFill 0.3s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes pixelFill {
+      from { filter: brightness(1.5); transform: scaleY(1.3); }
+      to { filter: none; transform: scaleY(1); }
+    }
+    @keyframes pixelPulse {
+      0% { filter: brightness(1.2) scale(1); }
+      50% { filter: brightness(1.7) scale(1.18); }
+      100% { filter: brightness(1.2) scale(1); }
+    }
+    .about-loading-block.pulse {
+      animation: pixelPulse 1.1s infinite cubic-bezier(.4,2,.6,1);
+      z-index: 2;
+    }
+    @keyframes pixelBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .about-loading-block.blink {
+      animation: pixelBlink 1.2s steps(1, end) infinite;
+      z-index: 2;
+    }
+    .about-loading-percent-pixel {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.1rem;
+      color: #21d4fd;
+      margin-left: 0.7rem;
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 8px rgba(33,212,253,0.10);
+    }
+    @media (max-width: 500px) {
+      .about-loading-bar-pixel { width: 98vw; min-width: 0; }
+      .about-loading-block { width: 8px; height: 1.1rem; margin: 0 1px; }
+      .about-loading-label-pixel, .about-loading-percent-pixel { font-size: 0.7rem; }
+    }
+    .back-arrow-btn {
+      position: fixed;
+      top: 5.5rem;
+      left: 2.2rem;
+      background: #21d4fd;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      cursor: pointer;
+      z-index: 2000;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .back-arrow-btn:hover, .back-arrow-btn:focus {
+      background: #b721ff;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.18);
+    }
+    .back-arrow-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: #fff;
+      transition: stroke 0.2s;
+    }
+    .back-arrow-btn:hover svg, .back-arrow-btn:focus svg {
+      stroke: #fff;
+    }
+    body.dark-mode .back-arrow-btn {
+      background: #fff;
+    }
+    body.dark-mode .back-arrow-btn svg {
+      stroke: #222;
+    }
+    @media (max-width: 700px) {
+      .back-arrow-btn {
+        top: 4.2rem;
+        left: 1rem;
+        width: 34px;
+        height: 34px;
+      }
+      .back-arrow-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    /* Timeline Graph Styles */
+    .about-timeline-graph {
+      width: 100%;
+      margin: 2.5rem 0 2.5rem 0;
+      overflow: visible;
+      min-height: 220px;
+    }
+    .timeline-track {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      position: relative;
+      min-width: 0;
+      overflow: visible;
+      width: 100%;
+      gap: 2.5rem;
+      padding: 0 1.5rem;
+      transition: all 0.4s cubic-bezier(.4,2,.6,1);
+      min-height: 180px;
+    }
+    .timeline-event {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: timelineFadeIn 0.8s forwards;
+      /* Angled effect for desktop */
+      margin-bottom: 0;
+      transition: margin-bottom 0.4s, transform 0.4s;
+    }
+    .timeline-event:nth-child(1) { margin-bottom: 0rem; }
+    .timeline-event:nth-child(2) { margin-bottom: 1.2rem; }
+    .timeline-event:nth-child(3) { margin-bottom: 2.4rem; }
+    .timeline-event:nth-child(4) { margin-bottom: 3.6rem; }
+    .timeline-event:nth-child(5) { margin-bottom: 4.8rem; }
+    .timeline-event:nth-child(6) { margin-bottom: 6rem; }
+    .timeline-event:nth-child(7) { margin-bottom: 7.2rem; }
+    .timeline-event:nth-child(8) { margin-bottom: 8.4rem; }
+    .timeline-event:nth-child(9) { margin-bottom: 9.6rem; }
+    .timeline-event:nth-child(10) { margin-bottom: 10.8rem; }
+    .timeline-event:nth-child(11) { margin-bottom: 12rem; }
+    @keyframes timelineFadeIn {
+      to { opacity: 1; transform: none; }
+    }
+    .timeline-dot {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #21d4fd 0%, #b721ff 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      margin-bottom: 0.7rem;
+      border: 3px solid #fff;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .timeline-dot:hover, .timeline-dot.active {
+      box-shadow: 0 4px 24px #b721ff55, 0 0 0 4px #21d4fd33;
+      transform: scale(1.18);
+    }
+    .timeline-content {
+      background: #fff;
+      color: #232a36;
+      border-radius: 1.1rem;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      padding: 1.1rem 1.5rem;
+      min-width: 180px;
+      text-align: center;
+      margin-top: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 10;
+    }
+    .timeline-dot:hover + .timeline-content,
+    .timeline-dot.active + .timeline-content {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) scale(1.04);
+    }
+    .timeline-year {
+      font-weight: 700;
+      color: #21d4fd;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    .timeline-title {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    @media (max-width: 900px) {
+      .timeline-track {
+        min-width: 700px;
+        gap: 1.2rem;
+        padding: 0 0.5rem;
+      }
+      .timeline-content {
+        min-width: 120px;
+        padding: 0.7rem 0.7rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .about-timeline-graph {
+        padding-bottom: 0.5rem;
+      }
+      .timeline-track {
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 0;
+        gap: 1.5rem;
+        width: 100%;
+      }
+      .timeline-event {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.7rem;
+        /* Remove angled effect on mobile */
+        margin-bottom: 0;
+      }
+      .timeline-event:nth-child(n) { margin-bottom: 0; }
+      .timeline-dot {
+        margin-bottom: 0;
+        margin-right: 0.7rem;
+      }
+      .timeline-content {
+        position: static;
+        transform: none;
+        margin-top: 0;
+        margin-left: 0;
+        opacity: 1;
+        pointer-events: auto;
+        min-width: 0;
+        box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      }
+      .timeline-dot:hover + .timeline-content,
+      .timeline-dot.active + .timeline-content {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    body.dark-mode .timeline-content {
+      background: #232a36;
+      color: #e0e7ff;
+      box-shadow: 0 2px 8px #21d4fd22;
+    }
+    body.dark-mode .timeline-title {
+      color: #e0e7ff;
+    }
+    body.dark-mode .timeline-year {
+      color: #21d4fd;
+    }
+    /* Skills Timeline Graph Styles */
+    .skills-timeline-section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      padding: 2rem 2.5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1s cubic-bezier(.4,2,.6,1);
+    }
+    .skills-timeline-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: #21d4fd;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      text-shadow: 0 2px 8px rgba(33,212,253,0.18);
+    }
+    .skills-timeline-chart {
+      width: 100%;
+      height: 380px;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
+      overflow: hidden;
+      border: none;
+      display: block;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (max-width: 700px) {
+      .skills-timeline-section { padding: 1.2rem 0.7rem; }
+      .skills-timeline-chart { height: 320px; }
+    }
+    body.dark-mode .skills-timeline-section {
+      background: #232a36;
+      color: #e0e7ff;
+    }
+    body.dark-mode .skills-timeline-title {
+      color: #21d4fd;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="site-logo">ardnepu</a>
+  <button class="back-arrow-btn" aria-label="Go back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+  <div class="theme-toggle">
+    <input type="checkbox" id="toggle-darkmode" aria-label="Toggle dark mode" />
+    <label for="toggle-darkmode" class="toggle-label">
+      <span class="toggle-sun">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </span>
+      <span class="toggle-moon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </label>
+  </div>
+  <h1 class="about-header">About Me</h1>
+  <div class="about-loading-pixel">
+    <div class="about-loading-label-row" style="display:flex;justify-content:space-between;align-items:flex-end;width:340px;max-width:95vw;margin-bottom:0.2rem;">
+      <span class="about-loading-label-pixel" style="margin-bottom:0;">LOADING...</span>
+      <span class="about-loading-percent-pixel" style="margin-left:0;">40%</span>
+    </div>
+    <div class="about-loading-bar-pixel" id="about-loading-bar-pixel"></div>
+  </div>
+  <div class="about-intro">
+    Hey there! I'm Upendra Pinnelli—a self-taught creative explorer, animation professional, and storyteller at heart.<br><br>
+    Most of my career has been spent leading amazing teams that make the kind of animated content kids love to watch.<br><br>
+    But that’s just one part of the story.<br><br>
+    Beyond that, I’m someone who loves exploring different sides of life. I spend a lot of time chasing stars with my camera, exploring places on my motorcycle, capturing wildlife through my lens, writing stories, and constantly learning and tinkering new skills and tools to see what I can build next. I enjoy learning, unlearning, and creating with curiosity.<br><br>
+    Back in 2014, I started AAL – Ardnepu Art Labs, which later became part of another animation studio in 2016. Since then, the journey’s only grown more interesting.<br><br>
+    This site is a little collection of everything I’m passionate about, from pixels to galaxies and the many things in between.
+  </div>
+  <div class="about-section">
+    <!-- Timeline Section: Responsive, Interactive, Animated -->
+    <div class="about-timeline-graph">
+      <div class="timeline-track">
+        <div class="timeline-event" data-year="1985">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1985</div>
+            <div class="timeline-title">Born in small town</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2002">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2002</div>
+            <div class="timeline-title">Finished School</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2006">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2006</div>
+            <div class="timeline-title">Graduated Engineering</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2008">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-title">First Job</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2012">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-title">Switched to Animation Industry</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2014">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-title">Founded AAL (Ardnepu Art Labs)</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2016">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-title">AAL merged with animation studio</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2018">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-title">Led major animation projects</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2020">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-title">Started exploring astrophotography</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2022">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-title">Mentoring creative teams</div>
+          </div>
+        </div>
+        <div class="timeline-event" data-year="2025">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">New milestone (future)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-facts">
+      <div class="about-fact">🌄 Climbed 10+ mountains</div>
+      <div class="about-fact">📸 50,000+ photos taken</div>
+      <div class="about-fact">✈️ Visited 30+ cities</div>
+      <div class="about-fact">🎬 100+ creative projects</div>
+      <div class="about-fact">☕ Coffee enthusiast</div>
+    </div>
+    <!-- <iframe class="about-map" src="https://www.openstreetmap.org/export/embed.html?bbox=68.1766451354%2C6.74713841792%2C97.4025614766%2C35.4940095078&amp;layer=mapnik" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+    <div class="about-skills">
+      <h2 style="color:#21d4fd;font-size:1.2rem;margin-bottom:1.2rem;">Skills</h2>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="90"></div><span class="about-skill-label">Storytelling</span><span class="about-skill-value">90%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="80"></div><span class="about-skill-label">Design</span><span class="about-skill-value">80%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="85"></div><span class="about-skill-label">Animation</span><span class="about-skill-value">85%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="75"></div><span class="about-skill-label">Photography</span><span class="about-skill-value">75%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="80"></div><span class="about-skill-label">Mentoring</span><span class="about-skill-value">80%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="50"></div><span class="about-skill-label">Web development</span><span class="about-skill-value">50%</span></div>
+      <div class="about-skill-bar"><div class="about-skill-fill" data-skill="40"></div><span class="about-skill-label">Art & Craft</span><span class="about-skill-value">40%</span></div>
+    </div>
+  </div>
+  <!-- Skills Timeline Graph -->
+  <div class="skills-timeline-section">
+    <h2 class="skills-timeline-title">Skills Timeline</h2>
+    <canvas id="skillsTimelineChart" height="380"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctx = document.getElementById('skillsTimelineChart').getContext('2d');
+      var years = [];
+      for (let y = 1985; y <= 2025; y += 1) years.push(y);
+      var skillsTimelineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'Animation',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 7 : y === 2013 ? 8 : y === 2014 ? 9 : y === 2015 ? 10 : y === 2016 ? 9 : y === 2017 ? 8 : y === 2018 ? 7 : y === 2019 ? 6 : y === 2020 ? 5 : y === 2021 ? 4 : y >= 2022 ? 4 : null),
+              borderColor: '#FFC300',
+              backgroundColor: 'rgba(255,195,0,0.08)',
+              pointBackgroundColor: '#FFC300',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Astrophotography',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 0 : y === 2013 ? 1 : y === 2014 ? 1 : y === 2015 ? 2 : y === 2016 ? 3 : y === 2017 ? 4 : y === 2018 ? 5 : y === 2019 ? 6 : y === 2020 ? 7 : y === 2021 ? 8 : y === 2022 ? 9 : y >= 2023 ? 9 : null),
+              borderColor: '#FF7300',
+              backgroundColor: 'rgba(255,115,0,0.08)',
+              pointBackgroundColor: '#FF7300',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Wildlife',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 1 : y === 2013 ? 2 : y === 2014 ? 2 : y === 2015 ? 3 : y === 2016 ? 4 : y === 2017 ? 5 : y === 2018 ? 6 : y === 2019 ? 7 : y === 2020 ? 8 : y === 2021 ? 9 : y >= 2022 ? 10 : null),
+              borderColor: '#FF3B6A',
+              backgroundColor: 'rgba(255,59,106,0.08)',
+              pointBackgroundColor: '#FF3B6A',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Motorcycle Touring',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 2 : y === 2013 ? 3 : y === 2014 ? 3 : y === 2015 ? 4 : y === 2016 ? 5 : y === 2017 ? 6 : y === 2018 ? 7 : y === 2019 ? 8 : y === 2020 ? 9 : y >= 2021 ? 10 : null),
+              borderColor: '#E75480',
+              backgroundColor: 'rgba(231,84,128,0.08)',
+              pointBackgroundColor: '#E75480',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Writing',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 3 : y === 2013 ? 3 : y === 2014 ? 4 : y === 2015 ? 4 : y === 2016 ? 5 : y === 2017 ? 6 : y === 2018 ? 7 : y === 2019 ? 8 : y >= 2020 ? 9 : null),
+              borderColor: '#21d4fd',
+              backgroundColor: 'rgba(33,212,253,0.08)',
+              pointBackgroundColor: '#21d4fd',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Learning Tools',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 2 : y === 2013 ? 3 : y === 2014 ? 4 : y === 2015 ? 5 : y === 2016 ? 6 : y === 2017 ? 6 : y === 2018 ? 6 : y === 2019 ? 7 : y === 2020 ? 8 : y >= 2021 ? 9 : null),
+              borderColor: '#00C49A',
+              backgroundColor: 'rgba(0,196,154,0.08)',
+              pointBackgroundColor: '#00C49A',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            },
+            {
+              label: 'Projects',
+              data: years.map(y => y < 2012 ? null : y === 2012 ? 3 : y === 2013 ? 4 : y === 2014 ? 5 : y === 2015 ? 6 : y === 2016 ? 6 : y === 2017 ? 5 : y === 2018 ? 4 : y === 2019 ? 4 : y === 2020 ? 5 : y === 2021 ? 6 : y >= 2022 ? 6 : null),
+              borderColor: '#2ECC40',
+              backgroundColor: 'rgba(46,204,64,0.08)',
+              pointBackgroundColor: '#2ECC40',
+              fill: false,
+              tension: 0.3,
+              spanGaps: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'right',
+              labels: {
+                color: '#232a36',
+                font: { family: 'Montserrat, Arial, sans-serif', size: 15, weight: 'bold' }
+              }
+            },
+            title: {
+              display: false
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false
+            }
+          },
+          interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Year',
+                color: '#232a36',
+                font: { family: 'Montserrat, Arial, sans-serif', size: 17, weight: 'bold' }
+              },
+              ticks: {
+                color: '#232a36',
+                font: { family: 'Montserrat, Arial, sans-serif', size: 15, weight: 'bold' },
+                autoSkip: false,
+                maxRotation: 0,
+                minRotation: 0,
+                display: true,
+                callback: function(value, index, values) {
+                  // Show only every 5th year
+                  const year = this.getLabelForValue(value);
+                  return year % 5 === 0 ? year : '';
+                }
+              },
+              grid: {
+                color: '#e0e7ff'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Skill Level',
+                color: '#232a36',
+                font: { family: 'Montserrat, Arial, sans-serif', size: 17, weight: 'bold' }
+              },
+              min: 1,
+              max: 10,
+              ticks: {
+                color: '#232a36',
+                font: { family: 'Montserrat, Arial, sans-serif', size: 15, weight: 'bold' },
+                stepSize: 1,
+                display: true
+              },
+              grid: {
+                color: '#e0e7ff'
+              }
+            }
+          }
+        }
+      });
+      // Dark mode support for Chart.js
+      function setChartOption(chart, path, value) {
+        let ref = chart.options;
+        for (let i = 0; i < path.length - 1; i++) {
+          ref = ref[path[i]];
+        }
+        ref[path[path.length - 1]] = value;
+      }
+      function updateChartColors() {
+        const isDark = document.body.classList.contains('dark-mode');
+        const tickColor = isDark ? '#fff' : '#232a36';
+        const titleColor = isDark ? '#fff' : '#232a36';
+        const tickFont = { family: 'Montserrat, Arial, sans-serif', size: 15, weight: 'bold' };
+        const titleFont = { family: 'Montserrat, Arial, sans-serif', size: 17, weight: 'bold' };
+        setChartOption(skillsTimelineChart, ['scales', 'x', 'ticks', 'color'], tickColor);
+        setChartOption(skillsTimelineChart, ['scales', 'y', 'ticks', 'color'], tickColor);
+        setChartOption(skillsTimelineChart, ['scales', 'x', 'ticks', 'font'], tickFont);
+        setChartOption(skillsTimelineChart, ['scales', 'y', 'ticks', 'font'], tickFont);
+        setChartOption(skillsTimelineChart, ['scales', 'x', 'title', 'color'], titleColor);
+        setChartOption(skillsTimelineChart, ['scales', 'y', 'title', 'color'], titleColor);
+        setChartOption(skillsTimelineChart, ['scales', 'x', 'title', 'font'], titleFont);
+        setChartOption(skillsTimelineChart, ['scales', 'y', 'title', 'font'], titleFont);
+        setChartOption(skillsTimelineChart, ['plugins', 'legend', 'labels', 'color'], isDark ? '#e0e7ff' : '#232a36');
+        skillsTimelineChart.update();
+      }
+      updateChartColors();
+      document.getElementById('toggle-darkmode')?.addEventListener('change', updateChartColors);
+    });
+  </script>
+  <script>
+    // Animate pixel loading bar
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pixel loading bar
+      var bar = document.getElementById('about-loading-bar-pixel');
+      if (bar) {
+        var totalBlocks = 20;
+        var filledBlocks = 8; // 40% of 20
+        for (let i = 0; i < totalBlocks; i++) {
+          var block = document.createElement('div');
+          block.className = 'about-loading-block';
+          bar.appendChild(block);
+        }
+        setTimeout(function() {
+          for (let i = 0; i < filledBlocks; i++) {
+            setTimeout(function() {
+              bar.children[i].classList.add('filled');
+              // After the last block is filled, add pulse
+              if (i === filledBlocks - 1) {
+                setTimeout(function() {
+                  bar.children[i].classList.add('blink');
+                }, 350);
+              }
+            }, 120 * i);
+          }
+        }, 400);
+      }
+      // Animate skill bars on load
+      document.querySelectorAll('.about-skill-fill').forEach(function(bar) {
+        setTimeout(function() {
+          bar.style.width = bar.getAttribute('data-skill') + '%';
+        }, 400);
+      });
+    });
+  </script>
+  <script>
+    // Timeline dot interactivity: highlight on click
+    document.addEventListener('DOMContentLoaded', function() {
+      var dots = document.querySelectorAll('.timeline-dot');
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          dots.forEach(d => d.classList.remove('active'));
+          dot.classList.add('active');
+        });
+      });
+    });
+  </script>
+  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="https://instagram.com/ardnepu" class="footer-icon instagram-icon" target="_blank" rel="noopener" title="Instagram">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com/ardnepu" class="footer-icon facebook-icon" target="_blank" rel="noopener" title="Facebook">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 8h-2a2 2 0 0 0-2 2v2h4"/><line x1="12" y1="16" x2="12" y2="12"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ardnepu" class="footer-icon linkedin-icon" target="_blank" rel="noopener" title="LinkedIn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/></svg>
+        </a>
+        <a href="mailto:upendra@ardnepu.com" class="footer-icon mail-icon" target="_blank" rel="noopener" title="Email">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="https://x.com/itsardnepu" class="footer-icon x-icon" target="_blank" rel="noopener" title="X (Twitter)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-.77.35-1.6.59-2.47.7a4.15 4.15 0 0 0 1.82-2.3 8.27 8.27 0 0 1-2.62 1 4.13 4.13 0 0 0-7.04 3.76A11.7 11.7 0 0 1 3.1 3.1a4.13 4.13 0 0 0 1.28 5.5c-.7-.02-1.36-.22-1.94-.54v.05a4.13 4.13 0 0 0 3.32 4.05c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.13 4.13 0 0 0 3.85 2.86A8.3 8.3 0 0 1 2 19.54a11.72 11.72 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22 4.01z"/></svg>
+        </a>
+        <a href="https://wa.me/9966999355" class="footer-icon whatsapp-icon" target="_blank" rel="noopener" title="WhatsApp">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 0-16.32 6.36L3 21l2.64-.68A9 9 0 0 0 21 12Z"/><path d="M16.5 15a4 4 0 0 1-7-2.5V12a4 4 0 0 1 4-4h.5"/></svg>
+        </a>
+        <a href="https://www.imdb.com/name/nm7526104/" class="footer-icon imdb-icon" target="_blank" rel="noopener" title="IMDB">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="#222"/>
+            <text x="7" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="bold" fill="#222">IMDB</text>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 
