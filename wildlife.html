@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -64,86 +64,137 @@
     .astro-filter-bar select:focus {
       box-shadow: 0 0 0 2px #21d4fd44;
     }
-    .bento-grid-astro {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-flow: dense;
-      gap: 2rem;
-      max-width: 1400px;
+                   .gallery-container {
+      max-width: 1200px;
       margin: 2.5rem auto 2rem auto;
       padding: 0 1rem;
-    }
-    .astro-card {
-      border-radius: 2rem;
-      box-shadow: 0 8px 32px rgba(60,60,120,0.13);
-      min-height: 200px;
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
       overflow: hidden;
+    }
+    
+    .gallery-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.5rem;
+    }
+    
+    .gallery-item {
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 1rem;
       cursor: pointer;
-      transition: box-shadow 0.4s, transform 0.4s;
-      grid-row: span 1;
-      grid-column: span 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.15);
     }
-    .astro-card:hover, .astro-card:focus {
-      transform: scale(1.04) translateY(-8px) rotate(-1deg);
-      box-shadow: 0 16px 48px rgba(33,212,253,0.18);
-      filter: brightness(1.08) saturate(1.2);
-      z-index: 2;
+    
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(33,212,253,0.25);
     }
-    .astro-tag {
-      background: rgba(33,212,253,0.85);
-      color: #fff;
-      font-size: 0.7rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 400;
-      border-radius: 0 1.2rem 0 1.2rem;
-      padding: 0.4rem 1.1rem 0.4rem 1.1rem;
-      margin: 0 0 1.2rem 0.8rem;
-      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
-      letter-spacing: 0.03em;
-    }
-    .astro-card.size2x2 { grid-row: span 2; grid-column: span 2; min-height: 410px; }
-    .astro-card.size2x1 { grid-column: span 2; min-height: 200px; }
-    .astro-card.size1x2 { grid-row: span 2; min-height: 410px; }
-    .astro-card.size1x1 { grid-row: span 1; grid-column: span 1; min-height: 200px; }
-    @media (max-width: 1200px) {
-      .bento-grid-astro {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
-      }
-      .astro-card, .astro-card.size2x2, .astro-card.size2x1, .astro-card.size1x2 {
-        min-height: 140px;
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
-      }
-    }
-    @media (max-width: 700px) {
-      .astro-header { font-size: 1.3rem; }
-      .astro-modal-content { padding: 1.2rem 0.5rem; }
-      .astro-filter-bar {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.7rem 0.7rem;
-      }
-      .astro-filter-bar label {
-        margin-right: 0;
-      }
-      .bento-grid-astro {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-      }
-      .astro-card, .astro-card.size2x2, .astro-card.size2x1, .astro-card.size1x2 {
-        min-height: 110px;
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
-      }
-    }
+    /* Gallery responsive classes */
+    .wk-desk-1 { width: 8.333333%; }
+    .wk-desk-2 { width: 16.666667%; }
+    .wk-desk-3 { width: 25%; }
+    .wk-desk-4 { width: 33.333333%; }
+    .wk-desk-5 { width: 41.666667%; }
+    .wk-desk-6 { width: 50%; }
+    .wk-desk-7 { width: 58.333333%; }
+    .wk-desk-8 { width: 66.666667%; }
+    .wk-desk-9 { width: 75%; }
+    .wk-desk-10 { width: 83.333333%; }
+    .wk-desk-11 { width: 91.666667%; }
+    .wk-desk-12 { width: 100%; }
+     @media (max-width: 1024px) {
+       .wk-ipadp-1 { width: 8.333333%; }
+       .wk-ipadp-2 { width: 16.666667%; }
+       .wk-ipadp-3 { width: 25%; }
+       .wk-ipadp-4 { width: 33.333333%; }
+       .wk-ipadp-5 { width: 41.666667%; }
+       .wk-ipadp-6 { width: 50%; }
+       .wk-ipadp-7 { width: 58.333333%; }
+       .wk-ipadp-8 { width: 66.666667%; }
+       .wk-ipadp-9 { width: 75%; }
+       .wk-ipadp-10 { width: 83.333333%; }
+       .wk-ipadp-11 { width: 91.666667%; }
+       .wk-ipadp-12 { width: 100%; }
+       
+       .gallery-container {
+         max-width: 900px;
+       }
+       
+       .gallery-item img {
+         height: 180px;
+       }
+     }
+         @media (max-width: 700px) {
+       .astro-header { font-size: 1.3rem; }
+       .astro-modal-content { 
+         padding: 1.2rem 0.5rem; 
+         max-width: 95vw;
+         width: 95vw;
+       }
+       .astro-modal-content img {
+         max-height: 60vh;
+       }
+       .astro-filter-bar {
+         flex-direction: column;
+         gap: 0.5rem;
+         padding: 0.7rem 0.7rem;
+       }
+       .astro-filter-bar label {
+         margin-right: 0;
+       }
+     @media (max-width: 768px) {
+       .wk-tab-1 { width: 8.333333%; }
+       .wk-tab-2 { width: 16.666667%; }
+       .wk-tab-3 { width: 25%; }
+       .wk-tab-4 { width: 33.333333%; }
+       .wk-tab-5 { width: 41.666667%; }
+       .wk-tab-6 { width: 50%; }
+       .wk-tab-7 { width: 58.333333%; }
+       .wk-tab-8 { width: 66.666667%; }
+       .wk-tab-9 { width: 75%; }
+       .wk-tab-10 { width: 83.333333%; }
+       .wk-tab-11 { width: 91.666667%; }
+       .wk-tab-12 { width: 100%; }
+       
+       .gallery-container {
+         max-width: 600px;
+       }
+       
+       .gallery-item img {
+         height: 160px;
+       }
+     }
+     
+     @media (max-width: 500px) {
+       .wk-mobile-1 { width: 8.333333%; }
+       .wk-mobile-2 { width: 16.666667%; }
+       .wk-mobile-3 { width: 25%; }
+       .wk-mobile-4 { width: 33.333333%; }
+       .wk-mobile-5 { width: 41.666667%; }
+       .wk-mobile-6 { width: 50%; }
+       .wk-mobile-7 { width: 58.333333%; }
+       .wk-mobile-8 { width: 66.666667%; }
+       .wk-mobile-9 { width: 75%; }
+       .wk-mobile-10 { width: 83.333333%; }
+       .wk-mobile-11 { width: 91.666667%; }
+       .wk-mobile-12 { width: 100%; }
+       
+       .gallery-container {
+         max-width: 400px;
+       }
+       
+       .gallery-item img {
+         height: 140px;
+       }
+     }
+     }
     .astro-modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -153,17 +204,19 @@
       justify-content: center;
       z-index: 9999;
     }
-    .astro-modal-content {
-      background: #fff;
-      border-radius: 1.5rem;
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      max-width: 420px;
-      width: 95vw;
-      box-shadow: 0 8px 32px rgba(33,212,253,0.18);
-      text-align: center;
-      position: relative;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
+         .astro-modal-content {
+       background: #fff;
+       border-radius: 1.5rem;
+       padding: 2rem 1.5rem 1.5rem 1.5rem;
+       max-width: 90vw;
+       max-height: 90vh;
+       width: 90vw;
+       box-shadow: 0 8px 32px rgba(33,212,253,0.18);
+       text-align: center;
+       position: relative;
+       font-family: 'Montserrat', Arial, sans-serif;
+       overflow: auto;
+     }
     body.dark-mode .astro-modal-content {
       background: #181c24;
       color: #fff;
@@ -177,12 +230,17 @@
       background: #21d4fd;
       color: #181c24;
     }
-    .astro-modal-content img {
-      max-width: 100%;
-      border-radius: 1rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 12px rgba(33,212,253,0.10);
-    }
+         .astro-modal-content img {
+       max-width: 100%;
+       max-height: 70vh;
+       width: auto;
+       height: auto;
+       border-radius: 1rem;
+       margin: 0 auto 1.2rem auto;
+       box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+       object-fit: contain;
+       display: block;
+     }
     .astro-modal-close {
       position: absolute;
       top: 0.7rem;
@@ -253,32 +311,9 @@
         height: 18px;
       }
     }
-    .footer-social {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      margin-top: 0.5rem;
-      max-width: 100vw;
-    }
+    
     @media (max-width: 500px) {
-      .footer-social {
-        flex-wrap: wrap;
-        gap: 0.7rem 1.2rem;
-        justify-content: center;
-        align-items: center;
-        max-width: 260px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .footer-social a {
-        flex: 1 1 28%;
-        min-width: 40px;
-        max-width: 48px;
-        text-align: center;
-      }
+
     }
     .astro-modal-nav {
       position: absolute;
@@ -363,112 +398,925 @@
     <select id="astro-filter">
       <option value="all">All</option>
       <option value="birds">Birds</option>
+      <option value="raptors">Raptors</option>
+      <option value="owls">Owls</option>
       <option value="mammals">Mammals</option>
       <option value="insects">Insects</option>
       <option value="reptiles">Reptiles</option>
-      <option value="bts">BTS</option>
+      <option value="misc">Misc</option>
       <option value="video">Video</option>
     </select>
   </div>
-  <section class="bento-grid bento-grid-astro">
-    <!-- Wildlife cards go here. You can copy the card structure from astrophotography.html and update data-tag, data-title, etc. as needed. -->
-    <!-- Birds -->
-    <div class="bento-card astro-card size2x2" data-tag="birds" data-title="Kingfisher" data-description="A vibrant kingfisher perched by the river." style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Birds</span>
-    </div>
-    <!-- Video Card -->
-    <div class="bento-card astro-card size2x2" data-tag="video" data-title="Wildlife Video" data-description="Watch this wildlife video." data-video="https://www.youtube.com/embed/il2hoYdIxz8" style="background-image:url('https://img.youtube.com/vi/il2hoYdIxz8/hqdefault.jpg'); position:relative; cursor:pointer;">
-      <span class="astro-tag">Video</span>
-      <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.55);border-radius:50%;padding:0.7em;display:flex;align-items:center;justify-content:center;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="#fff"/></svg>
-      </span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="birds" data-title="Eagle in Flight" data-description="A majestic eagle soaring high above the mountains." style="background-image:url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Birds</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="birds" data-title="Parrot Pair" data-description="A pair of colorful parrots sharing a branch." style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Birds</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="birds" data-title="Peacock Display" data-description="A peacock showing off its beautiful feathers." style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Birds</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="birds" data-title="Sparrow Flock" data-description="A flock of sparrows in mid-flight." style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Birds</span>
-    </div>
-    <!-- Mammals -->
-    <div class="bento-card astro-card size2x2" data-tag="mammals" data-title="Elephant Herd" data-description="A herd of elephants walking across the savannah." style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Mammals</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="mammals" data-title="Tiger in the Wild" data-description="A Bengal tiger prowling through the jungle." style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Mammals</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="mammals" data-title="Leaping Deer" data-description="A deer leaping gracefully over a stream." style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Mammals</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="mammals" data-title="Resting Lion" data-description="A lion resting in the shade of an acacia tree." style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Mammals</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="mammals" data-title="Monkey Family" data-description="A family of monkeys grooming each other." style="background-image:url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Mammals</span>
-    </div>
-    <!-- Insects -->
-    <div class="bento-card astro-card size2x2" data-tag="insects" data-title="Butterfly on Flower" data-description="A butterfly delicately perched on a wildflower." style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Insects</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="insects" data-title="Dragonfly" data-description="A dragonfly resting on a reed by the pond." style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Insects</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="insects" data-title="Bee at Work" data-description="A bee collecting pollen from a sunflower." style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Insects</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="insects" data-title="Ladybug" data-description="A ladybug crawling on a green leaf." style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Insects</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="insects" data-title="Praying Mantis" data-description="A praying mantis blending into the foliage." style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Insects</span>
-    </div>
-    <!-- Reptiles -->
-    <div class="bento-card astro-card size2x2" data-tag="reptiles" data-title="Chameleon" data-description="A chameleon changing colors on a branch." style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Reptiles</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="reptiles" data-title="Cobra" data-description="A cobra with its hood flared, ready to strike." style="background-image:url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Reptiles</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="reptiles" data-title="Turtle on the Beach" data-description="A sea turtle making its way to the ocean." style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Reptiles</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="reptiles" data-title="Gecko" data-description="A gecko clinging to a tree trunk." style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Reptiles</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="reptiles" data-title="Crocodile" data-description="A crocodile basking on the riverbank." style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Reptiles</span>
-    </div>
-    <!-- BTS -->
-    <div class="bento-card astro-card size2x2" data-tag="bts" data-title="Setting Up the Shot" data-description="Behind the scenes: setting up camera gear in the wild." style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">BTS</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="bts" data-title="Waiting in the Hide" data-description="Waiting patiently in a hide for the perfect wildlife moment." style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">BTS</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="bts" data-title="Checking the Camera" data-description="Reviewing shots on the camera in the field." style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">BTS</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="bts" data-title="Packing Up" data-description="Packing up gear after a successful shoot." style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">BTS</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="bts" data-title="Teamwork" data-description="Collaborating with fellow photographers in the wild." style="background-image:url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">BTS</span>
-    </div>
+           <div class="gallery-container">
+        <div class="gallery-row">
+          <!-- Birds -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/Verdieter_flycatcher-04-final.jpg" alt="Verdieter Flycatcher" data-tag="birds" data-title="Verdieter Flycatcher" data-description="A vibrant Verdieter flycatcher perched on a branch.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9827c-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A beautiful bird captured in mid-flight.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9370c-final.jpg" alt="Perched Bird" data-tag="birds" data-title="Perched Bird" data-description="A bird perched elegantly on a branch.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9249a-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A close-up portrait of a beautiful bird.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9228a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural habitat.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9169-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Birds/TPR_9095b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+          </div>
+                     <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_9056a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird captured in mid-flight.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_8785a-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_8521a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_8511a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_7467b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_7412a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_7393a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_7383a-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_7357a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6976a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6915b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6905b-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird captured in mid-flight.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6885a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6826c-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6803b-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6783a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6734b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6694b-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6676a-final1.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6665b-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6635a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6609a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6423b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6271a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6263b.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6193bb.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_6168a.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5936a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5563d-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5519b-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5519a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5511b-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5502b-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5500b-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5375-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5370b-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5370a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5303-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5251-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5159-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5119-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_5050-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4851-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4849-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4828-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4799-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4714b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4714.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4712.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4676-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4278a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4177b.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_4134b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_3829a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_3477d-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_3109b-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_3025b-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2551b-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2528a-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2520a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2515a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2396b-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2396a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2308b-final1.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2285a-final1.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2282a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2234a-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2178a-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2130a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2033b-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_2033a-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1948a-final1.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1865b-final.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1464-final1.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1450a-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1422a-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1342a-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1317a-final.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1027a.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_1013a-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_0814c-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_0751b-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/TPR_0198d-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/image(1).jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/DSC_1266d-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/DSC_1253b-final.jpg" alt="Bird Close-up" data-tag="birds" data-title="Bird Close-up" data-description="A detailed close-up of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/DSC_1252b-final.jpg" alt="Bird Perched" data-tag="birds" data-title="Bird Perched" data-description="A bird perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/DSC_1187c-final1.jpg" alt="Bird in Flight" data-tag="birds" data-title="Bird in Flight" data-description="A bird soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/DSC_1127c.jpg" alt="Bird Detail" data-tag="birds" data-title="Bird Detail" data-description="A detailed view of a bird.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/D55_5134c-final.jpg" alt="Bird Portrait" data-tag="birds" data-title="Bird Portrait" data-description="A beautiful bird portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Birds/D55_5070c-final.jpg" alt="Bird in Nature" data-tag="birds" data-title="Bird in Nature" data-description="A bird in its natural environment.">
+           </div>
+          
+          <!-- Raptors -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Raptors/TPR_7202b-final.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A majestic raptor soaring through the sky.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Raptors/D55_3978b-final.jpg" alt="Raptor Perched" data-tag="raptors" data-title="Raptor Perched" data-description="A powerful raptor perched on a high branch.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Raptors/D55_3880b-final1.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A detailed portrait of a raptor.">
+          </div>
 
-  </section>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_9410-final1.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural habitat.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_8958d-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_8907-final.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_8427-final.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A raptor soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_8160-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_8092a.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7945-final.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7943-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7884.jpg" alt="Raptor Perched" data-tag="raptors" data-title="Raptor Perched" data-description="A raptor perched on a branch.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7878.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7870.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7674a-final.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A raptor soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7671a-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7661-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_7590-final.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6910.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6907a.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6901b-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6898a.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6752a.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A raptor soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6751a-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6662a.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6190d-final1.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6048-denoise2.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5977b.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5958a-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5838-final2.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5643-final1.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A raptor soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_4718b-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_4716a-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_2859b-final.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_1853.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_0223-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6190d-final1.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_6048-denoise2.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5977b.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5958a-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5838-final2.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_5643-final1.jpg" alt="Raptor in Flight" data-tag="raptors" data-title="Raptor in Flight" data-description="A raptor soaring through the sky.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_4718b-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_4716a-final.jpg" alt="Raptor Detail" data-tag="raptors" data-title="Raptor Detail" data-description="A detailed view of a raptor.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_2859b-final.jpg" alt="Raptor Portrait" data-tag="raptors" data-title="Raptor Portrait" data-description="A beautiful raptor portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_1853.jpg" alt="Raptor in Nature" data-tag="raptors" data-title="Raptor in Nature" data-description="A raptor in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Raptors/D50_0223-final.jpg" alt="Raptor Close-up" data-tag="raptors" data-title="Raptor Close-up" data-description="A close-up view of a raptor.">
+           </div>
+          
+          <!-- Owls -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/TPR_7459a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A wise owl staring into the camera.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/TPR_7441a-final.jpg" alt="Owl in Tree" data-tag="owls" data-title="Owl in Tree" data-description="An owl camouflaged in a tree.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/TPR_7360d-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/TPR_7360c.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/DSC_0225a.jpg" alt="Owl in Tree" data-tag="owls" data-title="Owl in Tree" data-description="An owl perched in a tree.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/DSC_0225.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/DSC_0188.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D55_2520b.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D55_2436d.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D55_2126b-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9900b-final1.jpg" alt="Owl in Tree" data-tag="owls" data-title="Owl in Tree" data-description="An owl perched in a tree.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9692-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9468b.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9466a.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9449ab.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9425b.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9182c1-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_9115.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_8399a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6905a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6807-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6720b.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6611a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6227-final2.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6205a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6171a-final1.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6152a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6115b.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_6043a-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_5650b-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_5423a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_5391-denoise1.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_5351a-final-final2.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_4133-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_3848b.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_3793a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_3643a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_3313.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2832.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2791.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2743a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2612c.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2607b.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2444a-final1.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2086.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_2026a-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_1762a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_1004a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_0548-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_0530-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Owls/D50_0115c.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+          </div>
+
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_9449ab.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_9425b.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_9182c1-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_9115.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_8399a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6905a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6807-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6720b.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6611a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6227-final2.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6205a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6171a-final1.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6152a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6115b.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_6043a-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_5650b-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_5423a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_5391-denoise1.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_5351a-final-final2.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_4133-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_3848b.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_3793a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_3643a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_3313.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2832.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2791.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2743a.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2612c.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2607b.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2444a-final1.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2086.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_2026a-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_1762a-final.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_1004a.jpg" alt="Owl in Nature" data-tag="owls" data-title="Owl in Nature" data-description="An owl in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_0548-final.jpg" alt="Owl Close-up" data-tag="owls" data-title="Owl Close-up" data-description="A close-up view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_0530-final.jpg" alt="Owl Detail" data-tag="owls" data-title="Owl Detail" data-description="A detailed view of an owl.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Owls/D50_0115c.jpg" alt="Owl Portrait" data-tag="owls" data-title="Owl Portrait" data-description="A beautiful owl portrait.">
+           </div>
+          
+          <!-- Mammals -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Mammals/TPR_9914b-final.jpg" alt="Wild Mammal" data-tag="mammals" data-title="Wild Mammal" data-description="A wild mammal in its natural habitat.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Mammals/TPR_9904b-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Mammals/TPR_5423-final.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+          </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/DSC_1210c-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/DSC_1041b-final.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/DSC_0676c-final.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D55_2457b.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D55_2451b.jpg" alt="Mammal in Habitat" data-tag="mammals" data-title="Mammal in Habitat" data-description="A mammal in its natural habitat.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D55_0252c-final.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_9971a.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_9773a-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_9499.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_9418.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_9301.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_8991b-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_8965-final2.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_8917a-final.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_8854-final.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_8440a.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_6631c.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_6092-final2.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_6091-final2.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_4568a-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_4254-finalba.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_2779.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0422b-final.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0415-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0337-final.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0204b.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/TPR_5419-final.jpg" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/TPR_5414-final.jpg" alt="Mammal Close-up" data-tag="mammals" data-title="Mammal Close-up" data-description="A close-up view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/TPR_5408-final.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/TPR_3394c-final.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/IMG_E0812.JPG" alt="Mammal in Nature" data-tag="mammals" data-title="Mammal in Nature" data-description="A mammal in its natural environment.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0337-final.jpg" alt="Mammal Detail" data-tag="mammals" data-title="Mammal Detail" data-description="A detailed view of a wild mammal.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Mammals/D50_0204b.jpg" alt="Mammal Portrait" data-tag="mammals" data-title="Mammal Portrait" data-description="A beautiful portrait of a mammal.">
+           </div>
+          
+          <!-- Insects -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Insects/D50_1231a-final.jpg" alt="Insect Macro" data-tag="insects" data-title="Insect Macro" data-description="A detailed macro shot of an insect.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Insects/D50_1183a-final.jpg" alt="Butterfly" data-tag="insects" data-title="Butterfly" data-description="A colorful butterfly on a flower.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Insects/D50_1171-final1.jpg" alt="Insect Detail" data-tag="insects" data-title="Insect Detail" data-description="A detailed view of an insect.">
+          </div>
+          
+          <!-- Reptiles -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Reptiles/TPR_8884a-final.jpg" alt="Snake" data-tag="reptiles" data-title="Snake" data-description="A snake in its natural environment.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Reptiles/TPR_8879a-final.jpg" alt="Lizard" data-tag="reptiles" data-title="Lizard" data-description="A lizard basking in the sun.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Reptiles/D50_9797b-final.jpg" alt="Reptile Close-up" data-tag="reptiles" data-title="Reptile Close-up" data-description="A close-up view of a reptile.">
+          </div>
+                     <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Reptiles/D50_9092a-Final.jpg" alt="Reptile in Nature" data-tag="reptiles" data-title="Reptile in Nature" data-description="A reptile in its natural habitat.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Reptiles/D50_8420.jpg" alt="Reptile Close-up" data-tag="reptiles" data-title="Reptile Close-up" data-description="A close-up view of a reptile.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Reptiles/D50_7769a-final.jpg" alt="Reptile Detail" data-tag="reptiles" data-title="Reptile Detail" data-description="A detailed view of a reptile.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Reptiles/D50_7541-Final.jpg" alt="Reptile Portrait" data-tag="reptiles" data-title="Reptile Portrait" data-description="A portrait of a reptile.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Reptiles/D50_7311-final.jpg" alt="Reptile in Environment" data-tag="reptiles" data-title="Reptile in Environment" data-description="A reptile in its natural environment.">
+           </div>
+          
+          <!-- Misc -->
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Misc/16b.jpg" alt="Wildlife Scene" data-tag="misc" data-title="Wildlife Scene" data-description="A beautiful wildlife landscape.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Misc/14c.jpg" alt="Nature Shot" data-tag="misc" data-title="Nature Shot" data-description="A stunning nature photograph.">
+          </div>
+          <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+            <img src="assets/images/wildlife/Misc/13e.jpg" alt="Wildlife Landscape" data-tag="misc" data-title="Wildlife Landscape" data-description="A beautiful wildlife landscape scene.">
+          </div>
+                     <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/12b.jpg" alt="Nature View" data-tag="misc" data-title="Nature View" data-description="A scenic view of nature.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/11c.jpg" alt="Wildlife Scene" data-tag="misc" data-title="Wildlife Scene" data-description="A beautiful wildlife scene.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/10c.jpg" alt="Nature Detail" data-tag="misc" data-title="Nature Detail" data-description="A detailed view of nature.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/9c.jpg" alt="Wildlife Landscape" data-tag="misc" data-title="Wildlife Landscape" data-description="A stunning wildlife landscape.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/8c.jpg" alt="Nature Shot" data-tag="misc" data-title="Nature Shot" data-description="A beautiful nature photograph.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/7c.jpg" alt="Wildlife View" data-tag="misc" data-title="Wildlife View" data-description="A scenic wildlife view.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/6c.jpg" alt="Nature Scene" data-tag="misc" data-title="Nature Scene" data-description="A beautiful nature scene.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/4d.jpg" alt="Wildlife Detail" data-tag="misc" data-title="Wildlife Detail" data-description="A detailed wildlife view.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/2c.jpg" alt="Nature Portrait" data-tag="misc" data-title="Nature Portrait" data-description="A portrait of nature.">
+           </div>
+           <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+             <img src="assets/images/wildlife/Misc/00c.jpg" alt="Wildlife Landscape" data-tag="misc" data-title="Wildlife Landscape" data-description="A beautiful wildlife landscape.">
+           </div>
+          
+          <!-- Videos -->
+      </div>
   <div id="astro-modal" class="astro-modal" style="display:none;">
     <div class="astro-modal-content">
       <span class="astro-modal-close">&times;</span>
       <button class="astro-modal-nav astro-modal-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg></button>
       <button class="astro-modal-nav astro-modal-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg></button>
       <div id="astro-modal-media">
-        <img id="astro-modal-img" src="" alt="Astro Image" style="display:none;" />
-        <iframe id="astro-modal-video" src="" style="display:none;width:100%;height:400px;border-radius:1rem;border:none;margin-bottom:1rem;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <img id="astro-modal-img" src="" alt="Wildlife Image" style="display:none;" />
+                 <video id="astro-modal-video" controls style="display:none;width:100%;max-height:70vh;border-radius:1rem;border:none;margin-bottom:1rem;">
+          <source src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
       <h2 id="astro-modal-title"></h2>
       <p id="astro-modal-desc"></p>
@@ -477,30 +1325,30 @@
   </div>
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-social">
-        <a href="https://instagram.com/ardnepu" class="footer-icon instagram-icon" target="_blank" rel="noopener" title="Instagram">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+      <div class="social-icons">
+        <a href="https://instagram.com/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Instagram.svg" alt="Instagram" />
         </a>
-        <a href="https://facebook.com/ardnepu" class="footer-icon facebook-icon" target="_blank" rel="noopener" title="Facebook">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 8h-2a2 2 0 0 0-2 2v2h4"/><line x1="12" y1="16" x2="12" y2="12"/></svg>
+        <a href="https://facebook.com/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Facebook.svg" alt="Facebook" />
         </a>
-        <a href="https://linkedin.com/in/ardnepu" class="footer-icon linkedin-icon" target="_blank" rel="noopener" title="LinkedIn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/></svg>
+        <a href="https://x.com/itsardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_X.svg" alt="X (Twitter)" />
         </a>
-        <a href="mailto:upendra@ardnepu.com" class="footer-icon mail-icon" target="_blank" rel="noopener" title="Email">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="https://youtube.com/@ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Youtube.svg" alt="YouTube" />
         </a>
-        <a href="https://x.com/itsardnepu" class="footer-icon x-icon" target="_blank" rel="noopener" title="X (Twitter)">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-.77.35-1.6.59-2.47.7a4.15 4.15 0 0 0 1.82-2.3 8.27 8.27 0 0 1-2.62 1 4.13 4.13 0 0 0-7.04 3.76A11.7 11.7 0 0 1 3.1 3.1a4.13 4.13 0 0 0 1.28 5.5c-.7-.02-1.36-.22-1.94-.54v.05a4.13 4.13 0 0 0 3.32 4.05c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.13 4.13 0 0 0 3.85 2.86A8.3 8.3 0 0 1 2 19.54a11.72 11.72 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22 4.01z"/></svg>
+        <a href="https://www.imdb.com/name/nm7526104/" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_IMDB.svg" alt="IMDB" />
         </a>
-        <a href="https://wa.me/9966999355" class="footer-icon whatsapp-icon" target="_blank" rel="noopener" title="WhatsApp">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 0-16.32 6.36L3 21l2.64-.68A9 9 0 0 0 21 12Z"/><path d="M16.5 15a4 4 0 0 1-7-2.5V12a4 4 0 0 1 4-4h.5"/></svg>
+        <a href="https://linkedin.com/in/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="https://www.imdb.com/name/nm7526104/" class="footer-icon imdb-icon" target="_blank" rel="noopener" title="IMDB">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="#222"/>
-            <text x="7" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="bold" fill="#222">IMDB</text>
-          </svg>
+        <a href="mailto:upendra@ardnepu.com" class="social-icon">
+          <img src="assets/social_icons/Icons_Mail.svg" alt="Email" />
+        </a>
+        <a href="https://wa.me/9966999355" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_whatsapp.svg" alt="WhatsApp" />
         </a>
       </div>
     </div>
@@ -510,42 +1358,115 @@
     // Filter functionality
     document.getElementById('astro-filter').addEventListener('change', function() {
       const val = this.value;
-      document.querySelectorAll('.astro-card').forEach(card => {
-        card.style.display = (val === 'all' || card.dataset.tag === val) ? '' : 'none';
-      });
-    });
-    // Modal functionality
-    document.querySelectorAll('.astro-card').forEach(card => {
-      card.addEventListener('click', function() {
-        const video = card.dataset.video;
-        const modalImg = document.getElementById('astro-modal-img');
-        const modalVideo = document.getElementById('astro-modal-video');
-        if (video) {
-          modalImg.style.display = 'none';
-          modalVideo.src = video + '?autoplay=1';
-          modalVideo.style.display = 'block';
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const img = item.querySelector('img');
+        if (val === 'all' || img.dataset.tag === val) {
+          item.style.display = '';
         } else {
-          modalVideo.src = '';
-          modalVideo.style.display = 'none';
-          modalImg.src = card.style.backgroundImage.slice(5, -2);
-          modalImg.style.display = 'block';
+          item.style.display = 'none';
         }
-        document.getElementById('astro-modal-title').textContent = card.dataset.title;
-        document.getElementById('astro-modal-desc').textContent = card.dataset.description;
-        document.querySelector('.astro-modal-tag').textContent = card.dataset.tag.charAt(0).toUpperCase() + card.dataset.tag.slice(1);
-        document.getElementById('astro-modal').style.display = 'flex';
       });
     });
-    document.querySelector('.astro-modal-close').onclick = function() {
+
+    // Global variables for modal navigation
+    let currentImageIndex = 0;
+    let filteredImages = [];
+
+    // Modal functionality
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', function() {
+        // Get all visible images based on current filter
+        const filterValue = document.getElementById('astro-filter').value;
+        filteredImages = Array.from(document.querySelectorAll('.gallery-item')).filter(item => {
+          const img = item.querySelector('img');
+          return filterValue === 'all' || img.dataset.tag === filterValue;
+        });
+        
+        // Find current image index
+        currentImageIndex = filteredImages.findIndex(item => item.querySelector('img') === this);
+        
+        openModal(this);
+      });
+    });
+
+    function openModal(imgElement) {
+      const modalImg = document.getElementById('astro-modal-img');
+      const modalVideo = document.getElementById('astro-modal-video');
+      const video = imgElement.dataset.video;
+      
+      if (video) {
+        // Show video, hide image
+        modalImg.style.display = 'none';
+        const videoElement = document.getElementById('astro-modal-video');
+        const sourceElement = videoElement.querySelector('source');
+        sourceElement.src = video;
+        videoElement.load();
+        videoElement.style.display = 'block';
+      } else {
+        // Hide video, show image
+        modalVideo.style.display = 'none';
+        modalImg.src = imgElement.src;
+        modalImg.style.display = 'block';
+      }
+      
+      // Update modal content
+      document.getElementById('astro-modal-title').textContent = imgElement.dataset.title;
+      document.getElementById('astro-modal-desc').textContent = imgElement.dataset.description;
+      document.querySelector('.astro-modal-tag').textContent = imgElement.dataset.tag.charAt(0).toUpperCase() + imgElement.dataset.tag.slice(1);
+      document.getElementById('astro-modal').style.display = 'flex';
+    }
+
+    // Navigation functions
+    function showNextImage() {
+      if (filteredImages.length === 0) return;
+      
+      currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+      const nextImg = filteredImages[currentImageIndex].querySelector('img');
+      openModal(nextImg);
+    }
+
+    function showPreviousImage() {
+      if (filteredImages.length === 0) return;
+      
+      currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+      const prevImg = filteredImages[currentImageIndex].querySelector('img');
+      openModal(prevImg);
+    }
+
+    // Add event listeners for navigation buttons
+    document.querySelector('.astro-modal-next').addEventListener('click', showNextImage);
+    document.querySelector('.astro-modal-prev').addEventListener('click', showPreviousImage);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('astro-modal').style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+          showNextImage();
+        } else if (e.key === 'ArrowLeft') {
+          showPreviousImage();
+        } else if (e.key === 'Escape') {
+          closeModal();
+        }
+      }
+    });
+
+    function closeModal() {
       document.getElementById('astro-modal').style.display = 'none';
-      document.getElementById('astro-modal-video').src = '';
-    };
+      const videoElement = document.getElementById('astro-modal-video');
+      const sourceElement = videoElement.querySelector('source');
+      sourceElement.src = '';
+      videoElement.load();
+    }
+
+    // Close modal events
+    document.querySelector('.astro-modal-close').onclick = closeModal;
     document.getElementById('astro-modal').onclick = function(e) {
       if (e.target === this) {
-        this.style.display = 'none';
-        document.getElementById('astro-modal-video').src = '';
+        closeModal();
       }
     };
   </script>
 </body>
 </html>
+
+

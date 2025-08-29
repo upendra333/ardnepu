@@ -18,7 +18,7 @@
   --card9: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   --card-bg: #fff;
   --accent: #222;
-  --footer-bg: transparent;
+  ---bg: transparent;
   --footer-color: #222;
 }
 
@@ -56,11 +56,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 0;
   font-weight: 300;
   letter-spacing: 0.01em;
   text-decoration: none;
-  color: var(--accent);
+  color: transparent !important;
   position: relative;
   overflow: hidden;
   background: var(--card-bg);
@@ -71,87 +71,88 @@ body {
   font-family: 'Montserrat', 'Inter', Arial, sans-serif;
 }
 .bento-card.card-about {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/travel.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: about;
 }
 .bento-card.card-animation {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/animation.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: animation;
 }
 .bento-card.card-design {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/Graphicdesign.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: design;
 }
 .bento-card.card-art {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/art.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: art;
 }
 .bento-card.card-photography {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/Photography.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: photography;
 }
 .bento-card.card-rides {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/about.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: rides;
 }
 .bento-card.card-blog {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/blog.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: blog;
 }
 .bento-card.card-contact {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/apps.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: contact;
 }
 .bento-card.card-books {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/books.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  background-repeat: no-repeat;
+  color: transparent;
   font-family: 'Montserrat', 'Inter', Arial, sans-serif;
   font-weight: 300;
   letter-spacing: 0.01em;
   grid-area: books;
 }
 .bento-card.card-wildlife {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/photography/wildlife.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
   grid-area: wildlife;
 }
 .bento-card.card-astro {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/photography/astro.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
   grid-area: astro;
 }
 .bento-card.card-commercial {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/photography/commercial.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -159,17 +160,17 @@ body {
   text-align: center;
 }
 .bento-card.card-general {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/photography/general.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
   grid-area: general;
 }
 .bento-card.card-webdesign {
-  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.32),rgba(0,0,0,0.32)), url('assets/Covers/Webdesign.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: transparent;
   grid-area: webdesign;
 }
 .bento-card:hover, .bento-card:focus {
@@ -252,7 +253,7 @@ body {
 .site-footer {
   width: 100%;
   background: var(--footer-bg);
-  padding: 1rem 0 1rem 0;
+  padding: 2rem 0 3rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,43 +266,50 @@ body {
   gap: 0.2rem;
   font-size: 1.6rem;
   font-family: var(--font);
-  color: var(--footer-color);
+ 
 }
-.footer-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.3rem;
-}
+
 .footer-email {
   font-size: 1.4rem;
   letter-spacing: 0.02em;
   font-family: var(--font);
-  color: var(--footer-color);
+  
   margin-right: 0;
 }
-.footer-social {
+
+/* Social Icons Styles */
+.social-icons {
   display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-top: 0.5rem;
-}
-.footer-social a {
-  display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: var(--footer-color);
-  text-decoration: none;
-  transition: color 0.2s;
+  gap: 4rem;
+  margin-top: 1rem;
 }
-.footer-social a:hover {
-  color: #21d4fd;
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  scale: 3;
 }
-.footer-icon svg {
-  display: block;
-  width: 1.7em;
-  height: 1.7em;
+
+.social-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+  transform: translateY(-5px);
 }
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  filter: var(--social-icon-filter);
+}
+
+
+
+
 @media (max-width: 700px) {
   .footer-content {
     flex-direction: column;
@@ -311,6 +319,20 @@ body {
   .footer-email {
     font-size: 1.1rem;
     margin-right: 0;
+  }
+  
+  /* Mobile responsive adjustments for social icons */
+  .social-icons {
+    gap: 2rem;
+  }
+  
+  .social-icon {
+    scale: 2;
+  }
+  
+  .social-icon img {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -377,11 +399,13 @@ body.dark-mode {
   color: var(--accent);
 }
 body.dark-mode .site-footer {
-  background: var(--bg);
+  background: transparent;
 }
-body.dark-mode .footer-content, body.dark-mode .footer-email, body.dark-mode .footer-social a {
+body.dark-mode .footer-content, body.dark-mode .footer-email {
   color: var(--footer-color);
 }
+
+
 body.dark-mode .bento-card {
   color: var(--accent);
 }
@@ -395,9 +419,7 @@ body.dark-mode .bento-card.card-blog { grid-area: blog; color: var(--accent); }
 body.dark-mode .bento-card.card-contact { grid-area: contact; }
 body.dark-mode .bento-card.card-books { grid-area: books; }
 body.dark-mode .bento-card.card-webdesign { grid-area: webdesign; }
-body.dark-mode .footer-icon svg {
-  stroke: #fff;
-}
+
 body.dark-mode .photo-intro {
   color: #e0e7ff;
 }

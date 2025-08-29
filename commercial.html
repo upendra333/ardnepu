@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,130 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
   <style>
+    /* Dark theme by default */
+    body {
+      background: #181c24;
+      color: #fff;
+    }
+    
+    /* Dark theme overrides for commercial page */
+    body.dark-mode {
+      background: #181c24;
+      color: #fff;
+    }
+    
+    body.dark-mode .astro-intro {
+      color: #fff;
+    }
+    
+    body.dark-mode .astro-modal-content {
+      background: #181c24;
+      color: #fff;
+    }
+    
+    body.dark-mode .astro-modal-content h2,
+    body.dark-mode .astro-modal-content p,
+    body.dark-mode .astro-modal-tag {
+      color: #fff;
+    }
+    
+    body.dark-mode .astro-modal-tag {
+      background: #21d4fd;
+      color: #181c24;
+    }
+    
+    body.dark-mode .back-arrow-btn {
+      background: #fff;
+    }
+    
+    body.dark-mode .back-arrow-btn svg {
+      stroke: #222;
+    }
+    
+    /* Light theme styles */
+    body:not(.dark-mode) {
+      background: #f8fafc;
+      color: #222;
+    }
+    
+    body:not(.dark-mode) .astro-intro {
+      color: #444;
+    }
+    
+    body:not(.dark-mode) .astro-modal-content {
+      background: #fff;
+      color: #222;
+    }
+    
+    body:not(.dark-mode) .astro-modal-tag {
+      background: #21d4fd;
+      color: #fff;
+    }
+    
+    body:not(.dark-mode) .back-arrow-btn {
+      background: #21d4fd;
+    }
+    
+    body:not(.dark-mode) .back-arrow-btn svg {
+      stroke: #fff;
+    }
+    
+    /* Theme toggle styles */
+    .theme-toggle {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 3000;
+    }
+    
+    .theme-toggle input[type="checkbox"] {
+      display: none;
+    }
+    
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .toggle-label:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+    
+    .toggle-sun, .toggle-moon {
+      display: none;
+      color: #fff;
+    }
+    
+    .theme-toggle input[type="checkbox"]:not(:checked) + .toggle-label .toggle-sun {
+      display: inline;
+    }
+    
+    .theme-toggle input[type="checkbox"]:checked + .toggle-label .toggle-moon {
+      display: inline;
+    }
+    
+    @media (max-width: 700px) {
+      .theme-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+      
+      .toggle-label {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    
     .astro-header {
       text-align: center;
       margin-top: 2.5rem;
@@ -64,84 +188,120 @@
     .astro-filter-bar select:focus {
       box-shadow: 0 0 0 2px #21d4fd44;
     }
-    .bento-grid-astro {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-flow: dense;
-      gap: 2rem;
-      max-width: 1400px;
+    
+    .gallery-container {
+      max-width: 1200px;
       margin: 2.5rem auto 2rem auto;
       padding: 0 1rem;
-    }
-    .astro-card {
-      border-radius: 2rem;
-      box-shadow: 0 8px 32px rgba(60,60,120,0.13);
-      min-height: 200px;
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
       overflow: hidden;
+    }
+    
+    .gallery-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.5rem;
+    }
+    
+    .gallery-item {
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 1rem;
       cursor: pointer;
-      transition: box-shadow 0.4s, transform 0.4s;
-      grid-row: span 1;
-      grid-column: span 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 16px rgba(33,212,253,0.15);
     }
-    .astro-card:hover, .astro-card:focus {
-      transform: scale(1.04) translateY(-8px) rotate(-1deg);
-      box-shadow: 0 16px 48px rgba(33,212,253,0.18);
-      filter: brightness(1.08) saturate(1.2);
-      z-index: 2;
+    
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(33,212,253,0.25);
     }
-    .astro-tag {
-      background: rgba(33,212,253,0.85);
-      color: #fff;
-      font-size: 0.7rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 400;
-      border-radius: 0 1.2rem 0 1.2rem;
-      padding: 0.4rem 1.1rem 0.4rem 1.1rem;
-      margin: 0 0 1.2rem 0.8rem;
-      box-shadow: 0 2px 8px rgba(33,212,253,0.10);
-      letter-spacing: 0.03em;
+    
+    /* Gallery responsive classes */
+    .wk-desk-1 { width: 8.333333%; }
+    .wk-desk-2 { width: 16.666667%; }
+    .wk-desk-3 { width: 25%; }
+    .wk-desk-4 { width: 33.333333%; }
+    .wk-desk-5 { width: 41.666667%; }
+    .wk-desk-6 { width: 50%; }
+    .wk-desk-7 { width: 58.333333%; }
+    .wk-desk-8 { width: 66.666667%; }
+    .wk-desk-9 { width: 75%; }
+    .wk-desk-10 { width: 83.333333%; }
+    .wk-desk-11 { width: 91.666667%; }
+    .wk-desk-12 { width: 100%; }
+    
+    @media (max-width: 1024px) {
+      .wk-ipadp-1 { width: 8.333333%; }
+      .wk-ipadp-2 { width: 16.666667%; }
+      .wk-ipadp-3 { width: 25%; }
+      .wk-ipadp-4 { width: 33.333333%; }
+      .wk-ipadp-5 { width: 41.666667%; }
+      .wk-ipadp-6 { width: 50%; }
+      .wk-ipadp-7 { width: 58.333333%; }
+      .wk-ipadp-8 { width: 66.666667%; }
+      .wk-ipadp-9 { width: 75%; }
+      .wk-ipadp-10 { width: 83.333333%; }
+      .wk-ipadp-11 { width: 91.666667%; }
+      .wk-ipadp-12 { width: 100%; }
+      
+      .gallery-container {
+        max-width: 900px;
+      }
+      
+      .gallery-item img {
+        height: 180px;
+      }
     }
-    .astro-card.size2x2 { grid-row: span 2; grid-column: span 2; min-height: 410px; }
-    .astro-card.size2x1 { grid-column: span 2; min-height: 200px; }
-    .astro-card.size1x2 { grid-row: span 2; min-height: 410px; }
-    .astro-card.size1x1 { grid-row: span 1; grid-column: span 1; min-height: 200px; }
-    @media (max-width: 1200px) {
-      .bento-grid-astro {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
+    
+    @media (max-width: 768px) {
+      .wk-tab-1 { width: 8.333333%; }
+      .wk-tab-2 { width: 16.666667%; }
+      .wk-tab-3 { width: 25%; }
+      .wk-tab-4 { width: 33.333333%; }
+      .wk-tab-5 { width: 41.666667%; }
+      .wk-tab-6 { width: 50%; }
+      .wk-tab-7 { width: 58.333333%; }
+      .wk-tab-8 { width: 66.666667%; }
+      .wk-tab-9 { width: 75%; }
+      .wk-tab-10 { width: 83.333333%; }
+      .wk-tab-11 { width: 91.666667%; }
+      .wk-tab-12 { width: 100%; }
+      
+      .gallery-container {
+        max-width: 600px;
       }
-      .astro-card, .astro-card.size2x2, .astro-card.size2x1, .astro-card.size1x2 {
-        min-height: 140px;
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
+      
+      .gallery-item img {
+        height: 160px;
       }
     }
-    @media (max-width: 700px) {
-      .astro-header { font-size: 1.3rem; }
-      .astro-modal-content { padding: 1.2rem 0.5rem; }
-      .astro-filter-bar {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.7rem 0.7rem;
+    
+    @media (max-width: 500px) {
+      .wk-mobile-1 { width: 8.333333%; }
+      .wk-mobile-2 { width: 16.666667%; }
+      .wk-mobile-3 { width: 25%; }
+      .wk-mobile-4 { width: 33.333333%; }
+      .wk-mobile-5 { width: 41.666667%; }
+      .wk-mobile-6 { width: 50%; }
+      .wk-mobile-7 { width: 58.333333%; }
+      .wk-mobile-8 { width: 66.666667%; }
+      .wk-mobile-9 { width: 75%; }
+      .wk-mobile-10 { width: 83.333333%; }
+      .wk-mobile-11 { width: 91.666667%; }
+      .wk-mobile-12 { width: 100%; }
+      
+      .gallery-container {
+        max-width: 400px;
       }
-      .astro-filter-bar label {
-        margin-right: 0;
-      }
-      .bento-grid-astro {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-      }
-      .astro-card, .astro-card.size2x2, .astro-card.size2x1, .astro-card.size1x2 {
-        min-height: 110px;
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
+      
+      .gallery-item img {
+        height: 140px;
       }
     }
     .astro-modal {
@@ -157,31 +317,26 @@
       background: #fff;
       border-radius: 1.5rem;
       padding: 2rem 1.5rem 1.5rem 1.5rem;
-      max-width: 420px;
-      width: 95vw;
+      max-width: 90vw;
+      max-height: 90vh;
+      width: 90vw;
       box-shadow: 0 8px 32px rgba(33,212,253,0.18);
       text-align: center;
       position: relative;
       font-family: 'Montserrat', Arial, sans-serif;
+      overflow: auto;
     }
-    body.dark-mode .astro-modal-content {
-      background: #181c24;
-      color: #fff;
-    }
-    body.dark-mode .astro-modal-content h2,
-    body.dark-mode .astro-modal-content p,
-    body.dark-mode .astro-modal-tag {
-      color: #fff;
-    }
-    body.dark-mode .astro-modal-tag {
-      background: #21d4fd;
-      color: #181c24;
-    }
+
     .astro-modal-content img {
       max-width: 100%;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
       border-radius: 1rem;
-      margin-bottom: 1.2rem;
+      margin: 0 auto 1.2rem auto;
       box-shadow: 0 2px 12px rgba(33,212,253,0.10);
+      object-fit: contain;
+      display: block;
     }
     .astro-modal-close {
       position: absolute;
@@ -235,13 +390,25 @@
     .back-arrow-btn:hover svg, .back-arrow-btn:focus svg {
       stroke: #fff;
     }
-    body.dark-mode .back-arrow-btn {
-      background: #fff;
-    }
-    body.dark-mode .back-arrow-btn svg {
-      stroke: #222;
-    }
+
     @media (max-width: 700px) {
+      .astro-header { font-size: 1.3rem; }
+      .astro-modal-content { 
+        padding: 1.2rem 0.5rem; 
+        max-width: 95vw;
+        width: 95vw;
+      }
+      .astro-modal-content img {
+        max-height: 60vh;
+      }
+      .astro-filter-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.7rem 0.7rem;
+      }
+      .astro-filter-bar label {
+        margin-right: 0;
+      }
       .back-arrow-btn {
         top: 4.2rem;
         left: 1rem;
@@ -253,32 +420,9 @@
         height: 18px;
       }
     }
-    .footer-social {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      margin-top: 0.5rem;
-      max-width: 100vw;
-    }
+    
     @media (max-width: 500px) {
-      .footer-social {
-        flex-wrap: wrap;
-        gap: 0.7rem 1.2rem;
-        justify-content: center;
-        align-items: center;
-        max-width: 260px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .footer-social a {
-        flex: 1 1 28%;
-        min-width: 40px;
-        max-width: 48px;
-        text-align: center;
-      }
+
     }
     .astro-modal-nav {
       position: absolute;
@@ -344,7 +488,7 @@
     </svg>
   </button>
   <div class="theme-toggle">
-    <input type="checkbox" id="toggle-darkmode" aria-label="Toggle dark mode" />
+    <input type="checkbox" id="toggle-darkmode" aria-label="Toggle dark mode" checked />
     <label for="toggle-darkmode" class="toggle-label">
       <span class="toggle-sun">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -359,78 +503,170 @@
     Some of my photography projects for clients
   </div>
   <div class="astro-filter-bar">
-    <label for="astro-filter">Filter by tag:</label>
+    <label for="astro-filter">Filter by category:</label>
     <select id="astro-filter">
       <option value="all">All</option>
-      <option value="hone">H-one</option>
-      <option value="pixstar">Pixstar</option>
+      <option value="h-one-fitness">H-One Fitness</option>
+      <option value="pixstar-studio">Pixstar Studio</option>
       <option value="paintings">Paintings</option>
-      <option value="video">Video</option>
     </select>
   </div>
-  <section class="bento-grid bento-grid-astro">
-    <!-- H-one -->
-    <div class="bento-card astro-card size2x2" data-tag="hone" data-title="H-one Product Launch" data-description="Creative product launch shoot for H-one." style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">H-one</span>
+  <div class="gallery-container">
+    <div class="gallery-row">
+      <!-- H-One Fitness Images -->
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/1.jpg" alt="H-One Fitness 1" data-tag="h-one-fitness" data-title="H-One Fitness 1" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/2.jpg" alt="H-One Fitness 2" data-tag="h-one-fitness" data-title="H-One Fitness 2" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/3.jpg" alt="H-One Fitness 3" data-tag="h-one-fitness" data-title="H-One Fitness 3" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/4.jpg" alt="H-One Fitness 4" data-tag="h-one-fitness" data-title="H-One Fitness 4" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/5.jpg" alt="H-One Fitness 5" data-tag="h-one-fitness" data-title="H-One Fitness 5" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/6.jpg" alt="H-One Fitness 6" data-tag="h-one-fitness" data-title="H-One Fitness 6" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/7.jpg" alt="H-One Fitness 7" data-tag="h-one-fitness" data-title="H-One Fitness 7" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/8.jpg" alt="H-One Fitness 8" data-tag="h-one-fitness" data-title="H-One Fitness 8" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/9.jpg" alt="H-One Fitness 9" data-tag="h-one-fitness" data-title="H-One Fitness 9" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/10.jpg" alt="H-One Fitness 10" data-tag="h-one-fitness" data-title="H-One Fitness 10" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/11.jpg" alt="H-One Fitness 11" data-tag="h-one-fitness" data-title="H-One Fitness 11" data-description="Fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(4).jpg" alt="H-One Fitness Asad 4" data-tag="h-one-fitness" data-title="H-One Fitness Asad 4" data-description="Fitness training with Asad.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(8).jpg" alt="H-One Fitness Asad 8" data-tag="h-one-fitness" data-title="H-One Fitness Asad 8" data-description="Personal training with Asad.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(12).jpg" alt="H-One Fitness Asad 12" data-tag="h-one-fitness" data-title="H-One Fitness Asad 12" data-description="Fitness coaching with Asad.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(13).jpg" alt="H-One Fitness Asad 13" data-tag="h-one-fitness" data-title="H-One Fitness Asad 13" data-description="Personal training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(16).jpg" alt="H-One Fitness Asad 16" data-tag="h-one-fitness" data-title="H-One Fitness Asad 16" data-description="Fitness training with Asad.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Asad%20(17).jpg" alt="H-One Fitness Asad 17" data-tag="h-one-fitness" data-title="H-One Fitness Asad 17" data-description="Personal training with Asad.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(5).jpg" alt="H-One Fitness Group 5" data-tag="h-one-fitness" data-title="H-One Fitness Group 5" data-description="Intensive fitness training session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(8).jpg" alt="H-One Fitness Group 8" data-tag="h-one-fitness" data-title="H-One Fitness Group 8" data-description="Team workout session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(12).jpg" alt="H-One Fitness Group 12" data-tag="h-one-fitness" data-title="H-One Fitness Group 12" data-description="Fitness class in action.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(20).jpg" alt="H-One Fitness Group 20" data-tag="h-one-fitness" data-title="H-One Fitness Group 20" data-description="Group fitness energy.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(22).jpg" alt="H-One Fitness Group 22" data-tag="h-one-fitness" data-title="H-One Fitness Group 22" data-description="Fitness motivation session.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(30).jpg" alt="H-One Fitness Group 30" data-tag="h-one-fitness" data-title="H-One Fitness Group 30" data-description="Dynamic group workout.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(32).jpg" alt="H-One Fitness Group 32" data-tag="h-one-fitness" data-title="H-One Fitness Group 32" data-description="Group fitness training.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/H-One%20Fitness/H1_Group%20(34).jpg" alt="H-One Fitness Group 34" data-tag="h-one-fitness" data-title="H-One Fitness Group 34" data-description="Group fitness training session.">
+      </div>
+
+      <!-- Pixstar Studio Images -->
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/entrance.jpg" alt="Pixstar Studio Entrance" data-tag="pixstar-studio" data-title="Pixstar Studio Entrance" data-description="Professional studio entrance photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/Floor1.jpg" alt="Pixstar Studio Floor 1" data-tag="pixstar-studio" data-title="Pixstar Studio Floor 1" data-description="Studio floor 1 photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/Floor2.jpg" alt="Pixstar Studio Floor 2" data-tag="pixstar-studio" data-title="Pixstar Studio Floor 2" data-description="Studio floor 2 photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/floor3.jpg" alt="Pixstar Studio Floor 3" data-tag="pixstar-studio" data-title="Pixstar Studio Floor 3" data-description="Studio floor 3 photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/conf.jpg" alt="Pixstar Studio Conference" data-tag="pixstar-studio" data-title="Pixstar Studio Conference" data-description="Conference room photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/canteen.jpg" alt="Pixstar Studio Canteen" data-tag="pixstar-studio" data-title="Pixstar Studio Canteen" data-description="Studio canteen area photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/chess.jpg" alt="Pixstar Studio Chess" data-tag="pixstar-studio" data-title="Pixstar Studio Chess" data-description="Chess area photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/Recep.jpg" alt="Pixstar Studio Recep" data-tag="pixstar-studio" data-title="Pixstar Studio Recep" data-description="Reception area photography.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Pixstar%20Studio/way.jpg" alt="Pixstar Studio Way" data-tag="pixstar-studio" data-title="Pixstar Studio Way" data-description="Studio pathway photography.">
+      </div>
+
+      <!-- Paintings Images -->
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P1.jpg" alt="Painting 1" data-tag="paintings" data-title="Painting 1" data-description="Commercial painting photography - artwork 1.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P2.jpg" alt="Painting 2" data-tag="paintings" data-title="Painting 2" data-description="Commercial painting photography - artwork 2.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P3.jpg" alt="Painting 3" data-tag="paintings" data-title="Painting 3" data-description="Commercial painting photography - artwork 3.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P4.jpg" alt="Painting 4" data-tag="paintings" data-title="Painting 4" data-description="Commercial painting photography - artwork 4.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P5.jpg" alt="Painting 5" data-tag="paintings" data-title="Painting 5" data-description="Commercial painting photography - artwork 5.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P6.jpg" alt="Painting 6" data-tag="paintings" data-title="Painting 6" data-description="Commercial painting photography - artwork 6.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P7.jpg" alt="Painting 7" data-tag="paintings" data-title="Painting 7" data-description="Commercial painting photography - artwork 7.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P9.jpg" alt="Painting 9" data-tag="paintings" data-title="Painting 9" data-description="Commercial painting photography - artwork 9.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P10.jpg" alt="Painting 10" data-tag="paintings" data-title="Painting 10" data-description="Commercial painting photography - artwork 10.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P11.jpg" alt="Painting 11" data-tag="paintings" data-title="Painting 11" data-description="Commercial painting photography - artwork 11.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P12.jpg" alt="Painting 12" data-tag="paintings" data-title="Painting 12" data-description="Commercial painting photography - artwork 12.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P13.jpg" alt="Painting 13" data-tag="paintings" data-title="Painting 13" data-description="Commercial painting photography - artwork 13.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P14.jpg" alt="Painting 14" data-tag="paintings" data-title="Painting 14" data-description="Commercial painting photography - artwork 14.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P15.jpg" alt="Painting 15" data-tag="paintings" data-title="Painting 15" data-description="Commercial painting photography - artwork 15.">
+      </div>
+      <div class="gallery-item wk-desk-3 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+        <img src="assets/images/Commercial/Paintings/P16.jpg" alt="Painting 16" data-tag="paintings" data-title="Painting 16" data-description="Commercial painting photography - artwork 16.">
+      </div>
     </div>
-    <div class="bento-card astro-card size2x1" data-tag="hone" data-title="H-one Branding" data-description="Branding visuals for H-one campaign." style="background-image:url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">H-one</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="hone" data-title="H-one Lifestyle" data-description="Lifestyle imagery for H-one products." style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">H-one</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="hone" data-title="H-one Studio" data-description="Studio shoot for H-one catalog." style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">H-one</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="hone" data-title="H-one Team" data-description="Team portraits for H-one." style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">H-one</span>
-    </div>
-    <!-- Pixstar -->
-    <div class="bento-card astro-card size2x2" data-tag="pixstar" data-title="Pixstar Ad Shoot" data-description="Advertising shoot for Pixstar." style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Pixstar</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="pixstar" data-title="Pixstar Product" data-description="Product photography for Pixstar." style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Pixstar</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="pixstar" data-title="Pixstar Team" data-description="Team shoot for Pixstar." style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Pixstar</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="pixstar" data-title="Pixstar Studio" data-description="Studio session for Pixstar products." style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Pixstar</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="pixstar" data-title="Pixstar Branding" data-description="Branding visuals for Pixstar." style="background-image:url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Pixstar</span>
-    </div>
-    <!-- Paintings -->
-    <div class="bento-card astro-card size2x2" data-tag="paintings" data-title="Modern Art" data-description="A modern painting for a commercial client." style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Paintings</span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="paintings" data-title="Abstract Canvas" data-description="Abstract painting for office decor." style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Paintings</span>
-    </div>
-    <div class="bento-card astro-card size1x2" data-tag="paintings" data-title="Classic Portrait" data-description="A classic portrait painting reproduction." style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Paintings</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="paintings" data-title="Landscape Art" data-description="Landscape painting for a commercial project." style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Paintings</span>
-    </div>
-    <div class="bento-card astro-card size1x1" data-tag="paintings" data-title="Color Study" data-description="A vibrant color study painting." style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80');">
-      <span class="astro-tag">Paintings</span>
-    </div>
-    <!-- Video Cards -->
-    <div class="bento-card astro-card size2x2" data-tag="video" data-title="Commercial Photography Process" data-description="Behind the scenes of commercial photography shoots." data-video="https://www.youtube.com/embed/il2hoYdIxz8" style="background-image:url('https://img.youtube.com/vi/il2hoYdIxz8/hqdefault.jpg'); position:relative; cursor:pointer;">
-      <span class="astro-tag">Video</span>
-      <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.55);border-radius:50%;padding:0.7em;display:flex;align-items:center;justify-content:center;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="#fff"/></svg>
-      </span>
-    </div>
-    <div class="bento-card astro-card size2x1" data-tag="video" data-title="Product Photography Tips" data-description="Professional tips for product photography." data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" style="background-image:url('https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'); position:relative; cursor:pointer;">
-      <span class="astro-tag">Video</span>
-      <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.55);border-radius:50%;padding:0.7em;display:flex;align-items:center;justify-content:center;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="#fff"/></svg>
-      </span>
-    </div>
-  </section>
+  </div>
   <div id="astro-modal" class="astro-modal" style="display:none;">
     <div class="astro-modal-content">
       <span class="astro-modal-close">&times;</span>
@@ -438,7 +674,7 @@
       <button class="astro-modal-nav astro-modal-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg></button>
       <div id="astro-modal-media">
         <img id="astro-modal-img" src="" alt="Astro Image" style="display:none;" />
-        <iframe id="astro-modal-video" src="" style="display:none;width:100%;height:400px;border-radius:1rem;border:none;margin-bottom:1rem;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="astro-modal-video" src="" style="display:none;width:100%;max-height:70vh;border-radius:1rem;border:none;margin:0 auto 1.2rem auto;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <h2 id="astro-modal-title"></h2>
       <p id="astro-modal-desc"></p>
@@ -447,30 +683,30 @@
   </div>
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-social">
-        <a href="https://instagram.com/ardnepu" class="footer-icon instagram-icon" target="_blank" rel="noopener" title="Instagram">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+      <div class="social-icons">
+        <a href="https://instagram.com/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Instagram.svg" alt="Instagram" />
         </a>
-        <a href="https://facebook.com/ardnepu" class="footer-icon facebook-icon" target="_blank" rel="noopener" title="Facebook">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 8h-2a2 2 0 0 0-2 2v2h4"/><line x1="12" y1="16" x2="12" y2="12"/></svg>
+        <a href="https://facebook.com/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Facebook.svg" alt="Facebook" />
         </a>
-        <a href="https://linkedin.com/in/ardnepu" class="footer-icon linkedin-icon" target="_blank" rel="noopener" title="LinkedIn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/></svg>
+        <a href="https://x.com/itsardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_X.svg" alt="X (Twitter)" />
         </a>
-        <a href="mailto:upendra@ardnepu.com" class="footer-icon mail-icon" target="_blank" rel="noopener" title="Email">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="https://youtube.com/@ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Youtube.svg" alt="YouTube" />
         </a>
-        <a href="https://x.com/itsardnepu" class="footer-icon x-icon" target="_blank" rel="noopener" title="X (Twitter)">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-.77.35-1.6.59-2.47.7a4.15 4.15 0 0 0 1.82-2.3 8.27 8.27 0 0 1-2.62 1 4.13 4.13 0 0 0-7.04 3.76A11.7 11.7 0 0 1 3.1 3.1a4.13 4.13 0 0 0 1.28 5.5c-.7-.02-1.36-.22-1.94-.54v.05a4.13 4.13 0 0 0 3.32 4.05c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.13 4.13 0 0 0 3.85 2.86A8.3 8.3 0 0 1 2 19.54a11.72 11.72 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22 4.01z"/></svg>
+        <a href="https://www.imdb.com/name/nm7526104/" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_IMDB.svg" alt="IMDB" />
         </a>
-        <a href="https://wa.me/9966999355" class="footer-icon whatsapp-icon" target="_blank" rel="noopener" title="WhatsApp">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 0-16.32 6.36L3 21l2.64-.68A9 9 0 0 0 21 12Z"/><path d="M16.5 15a4 4 0 0 1-7-2.5V12a4 4 0 0 1 4-4h.5"/></svg>
+        <a href="https://linkedin.com/in/ardnepu" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_Linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="https://www.imdb.com/name/nm7526104/" class="footer-icon imdb-icon" target="_blank" rel="noopener" title="IMDB">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="#222"/>
-            <text x="7" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="bold" fill="#222">IMDB</text>
-          </svg>
+        <a href="mailto:upendra@ardnepu.com" class="social-icon">
+          <img src="assets/social_icons/Icons_Mail.svg" alt="Email" />
+        </a>
+        <a href="https://wa.me/9966999355" class="social-icon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/social_icons/Icons_whatsapp.svg" alt="WhatsApp" />
         </a>
       </div>
     </div>
@@ -480,42 +716,115 @@
     // Filter functionality
     document.getElementById('astro-filter').addEventListener('change', function() {
       const val = this.value;
-      document.querySelectorAll('.astro-card').forEach(card => {
-        card.style.display = (val === 'all' || card.dataset.tag === val) ? '' : 'none';
-      });
-    });
-    // Modal functionality
-    document.querySelectorAll('.astro-card').forEach(card => {
-      card.addEventListener('click', function() {
-        const video = card.dataset.video;
-        const modalImg = document.getElementById('astro-modal-img');
-        const modalVideo = document.getElementById('astro-modal-video');
-        if (video) {
-          modalImg.style.display = 'none';
-          modalVideo.src = video + '?autoplay=1';
-          modalVideo.style.display = 'block';
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const img = item.querySelector('img');
+        if (val === 'all' || img.dataset.tag === val) {
+          item.style.display = '';
         } else {
-          modalVideo.src = '';
-          modalVideo.style.display = 'none';
-          modalImg.src = card.style.backgroundImage.slice(5, -2);
-          modalImg.style.display = 'block';
+          item.style.display = 'none';
         }
-        document.getElementById('astro-modal-title').textContent = card.dataset.title;
-        document.getElementById('astro-modal-desc').textContent = card.dataset.description;
-        document.querySelector('.astro-modal-tag').textContent = card.dataset.tag.charAt(0).toUpperCase() + card.dataset.tag.slice(1);
-        document.getElementById('astro-modal').style.display = 'flex';
       });
     });
-    document.querySelector('.astro-modal-close').onclick = function() {
+
+    // Global variables for modal navigation
+    let currentImageIndex = 0;
+    let filteredImages = [];
+
+    // Modal functionality
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', function() {
+        // Get all visible images based on current filter
+        const filterValue = document.getElementById('astro-filter').value;
+        filteredImages = Array.from(document.querySelectorAll('.gallery-item')).filter(item => {
+          const img = item.querySelector('img');
+          return filterValue === 'all' || img.dataset.tag === filterValue;
+        });
+        
+        // Find current image index
+        currentImageIndex = filteredImages.findIndex(item => item.querySelector('img') === this);
+        
+        openModal(this);
+      });
+    });
+
+    function openModal(imgElement) {
+      const modalImg = document.getElementById('astro-modal-img');
+      const modalVideo = document.getElementById('astro-modal-video');
+      const video = imgElement.dataset.video;
+      
+      if (video) {
+        // Show video, hide image
+        modalImg.style.display = 'none';
+        const videoElement = document.getElementById('astro-modal-video');
+        const sourceElement = videoElement.querySelector('source');
+        sourceElement.src = video;
+        videoElement.load();
+        videoElement.style.display = 'block';
+      } else {
+        // Hide video, show image
+        modalVideo.style.display = 'none';
+        modalImg.src = imgElement.src;
+        modalImg.style.display = 'block';
+      }
+      
+      // Update modal content
+      document.getElementById('astro-modal-title').textContent = imgElement.dataset.title;
+      document.getElementById('astro-modal-desc').textContent = imgElement.dataset.description;
+      document.querySelector('.astro-modal-tag').textContent = imgElement.dataset.tag.charAt(0).toUpperCase() + imgElement.dataset.tag.slice(1);
+      document.getElementById('astro-modal').style.display = 'flex';
+    }
+
+    // Navigation functions
+    function showNextImage() {
+      if (filteredImages.length === 0) return;
+      
+      currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+      const nextImg = filteredImages[currentImageIndex].querySelector('img');
+      openModal(nextImg);
+    }
+
+    function showPreviousImage() {
+      if (filteredImages.length === 0) return;
+      
+      currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+      const prevImg = filteredImages[currentImageIndex].querySelector('img');
+      openModal(prevImg);
+    }
+
+    // Add event listeners for navigation buttons
+    document.querySelector('.astro-modal-next').addEventListener('click', showNextImage);
+    document.querySelector('.astro-modal-prev').addEventListener('click', showPreviousImage);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('astro-modal').style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+          showNextImage();
+        } else if (e.key === 'ArrowLeft') {
+          showPreviousImage();
+        } else if (e.key === 'Escape') {
+          closeModal();
+        }
+      }
+    });
+
+    function closeModal() {
       document.getElementById('astro-modal').style.display = 'none';
-      document.getElementById('astro-modal-video').src = '';
-    };
+      const videoElement = document.getElementById('astro-modal-video');
+      const sourceElement = videoElement.querySelector('source');
+      sourceElement.src = '';
+      videoElement.load();
+    }
+
+    // Close modal events
+    document.querySelector('.astro-modal-close').onclick = closeModal;
     document.getElementById('astro-modal').onclick = function(e) {
       if (e.target === this) {
-        this.style.display = 'none';
-        document.getElementById('astro-modal-video').src = '';
+        closeModal();
       }
     };
   </script>
 </body>
 </html> 
+
+

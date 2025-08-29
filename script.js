@@ -64,10 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dark mode toggle
   const toggle = document.getElementById('toggle-darkmode');
   if (toggle) {
-    // Load preference
-    if (localStorage.getItem('theme') === 'dark') {
+    // Load preference or default to dark theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.remove('dark-mode');
+      toggle.checked = false;
+    } else {
+      // Default to dark theme
       document.body.classList.add('dark-mode');
       toggle.checked = true;
+      localStorage.setItem('theme', 'dark');
     }
     toggle.addEventListener('change', () => {
       if (toggle.checked) {
@@ -101,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'profanim.html': 'animation.html',
     // Design subpages
     'branding.html': 'graphicdesign.html',
-    'webdesign.html': 'graphicdesign.html',
+    'webdesign.html': 'index.html',
     'creatives.html': 'graphicdesign.html',
     // Photography subpages
     'commercial.html': 'photography.html',
